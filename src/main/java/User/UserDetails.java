@@ -5,18 +5,18 @@ public class UserDetails {
 	//String UserId;
 	String Password;
 	String First_Name;
-	String LastName;
-	//String DOB;
+	String Last_Name;
+	String DOB;
 	int Age;
 	String Gender; 
 	String Address;
 	Long PhoneNo;
-	public UserDetails( String first_Name, String lastName, int age,
+	public UserDetails( String first_Name, String last_Name, int age,
 			String gender, String address, long phoneNo,String password) {
 		super();
 		Password = password;
 		First_Name = first_Name;
-		LastName = lastName;
+		Last_Name = last_Name;
 		//DOB = dOB;
 		Age = age;
 		Gender = gender;
@@ -47,11 +47,11 @@ public class UserDetails {
 	public void setFirst_Name(String first_Name) {
 		First_Name = first_Name;
 	}
-	public String getLastName() {
-		return LastName;
+	public String getLast_Name() {
+		return Last_Name;
 	}
-	public void setLastName(String lastName) {
-		LastName = lastName;
+	public void setLast_Name(String last_Name) {
+		Last_Name = last_Name;
 	}
 	//public String getDOB() {
 	//	return DOB;
