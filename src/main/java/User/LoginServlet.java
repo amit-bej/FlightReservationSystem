@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Connection.GetConnection;
+
 
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
@@ -21,18 +23,14 @@ public class LoginServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-	Connection con ;
-
-    public LoginServlet(Connection con) {
-        this.con = con;
-    }
+	Connection con = GetConnection.getConnection();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userID = request.getParameter("username");
 		String password = request.getParameter("password");
 		RequestDispatcher dispatcher = null;
 		try
 		{
-			 PreparedStatement pt = con.prepareStatement("select * from UserDetails where UserId = ? and Password = ?");
+			 PreparedStatement pt = con.prepareStatement("select * from OFRS.USER_DETAILS where USER_ID= ? and PASSWORD = ?");
 			 pt.setString(1,userID);
 			 pt.setString(2,password);
 			 

@@ -1,6 +1,10 @@
 package User;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.Random;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +17,12 @@ import Connection.GetConnection;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public RegisterServlet() 
+	{
+        super();
+    }
+	
+	Connection con = GetConnection.getConnection();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//Fetch data from registration page
@@ -25,27 +35,48 @@ public class RegisterServlet extends HttpServlet {
 		Long PhoneNo = Long.parseLong(request.getParameter("PhoneNo"));
 		String Password = request.getParameter("Password");
 		
-		//Setting data to UserDetails.java
-		UserDetails user = new UserDetails(First_Name,Last_Name,Age,Gender,Address,PhoneNo,Password);
-		//user.setFirst_Name(First_Name);
-		//user.setLastName(Last_Name);
-		//user.setAge(Age);
-		//user.setGender(Gender);
-		//user.setAddress(Address);
-		//user.setPhoneNo(PhoneNo);
-		//user.setPassword(Password);
 		
-		//create a database model and calling saveUser
-		UserDetailsDatabase regUser = new UserDetailsDatabase(GetConnection.getConnection());
-		if (regUser.saveUser(user)) {
-			   response.sendRedirect("Login.jsp");
-			} else {
-			    String errorMessage = "User Available";
-			    HttpSession regSession = request.getSession();
-			    regSession.setAttribute("RegistrationError", errorMessage);
-			    response.sendRedirect("register.jsp");
-			    }
-	}
+		//Creating random user id for user
+	    Random rnd = new Random();
+	    int number = rnd.nextInt(99999);
+		
+		//RequestDispatcher dispatcher = null;
+		
+		try
+		{
+			
+			 String query = "insert into OFRS.USER_DETAILS (USER_ID,PASSWORD,FIRST_NAME,LAST_NAME,AGE,GENDER,ADDRESS,PHONE_NUMBER) values(?,?,?,?,?,?,?,?)";
+	           PreparedStatement pt = con.prepareStatement(query);
+	           pt.setInt(1, number);
+	           pt.setString(2,Password );
+	           pt.setString(3, First_Name);
+	           pt.setString(4, Last_Name);
+	           pt.setInt(5, Age);
+	           pt.setString(6, Gender);
+	           pt.setString(7,Address);
+	           pt.setLong(8,PhoneNo);
+	           
+	           int i = pt.executeUpdate();
+	           
+	           if(i!=0)
+	           {
+	        	   response.sendRedirect("Login.jsp");
+	           }
+	           else {
+				    String errorMessage = "User Available";
+				    HttpSession regSession = request.getSession();
+				    regSession.setAttribute("RegistrationError", errorMessage);
+				    response.sendRedirect("Registration.jsp");
+				    }
+	        	   
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		}
+		
+	
 
 
 }
