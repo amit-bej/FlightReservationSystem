@@ -30,7 +30,7 @@
   </div>
 </section>
 <!-- partial -->
-  <script  src="./script.js"></script>
+  <% String message = (String)request.getAttribute("status"); %>
 
 </body>
 </html>

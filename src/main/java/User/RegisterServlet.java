@@ -26,8 +26,8 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//Fetch data from registration page
-		String First_Name = request.getParameter("First Name");
-		String Last_Name = request.getParameter("Last Name");
+		String First_Name = request.getParameter("FirstName");
+		String Last_Name = request.getParameter("LastName");
 		//String DOB = request.getParameter("DOB");
 		int Age = Integer.parseInt(request.getParameter("Age"));
 		String Gender = request.getParameter("Gender");

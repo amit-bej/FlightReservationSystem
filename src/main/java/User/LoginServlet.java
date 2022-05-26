@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 			 ResultSet rs = pt.executeQuery();
 			 if(rs.next())
 			 {
-				 dispatcher = request.getRequestDispatcher("Bookflight.jsp");
+				 dispatcher = request.getRequestDispatcher("/Bookflight.jsp");
 			 }
 			 else
 			 {
