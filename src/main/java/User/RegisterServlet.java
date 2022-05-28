@@ -3,8 +3,10 @@ package User;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Random;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,7 @@ public class RegisterServlet extends HttpServlet {
 		int Age = Integer.parseInt(request.getParameter("Age"));
 		String Gender = request.getParameter("Gender");
 		String Address = request.getParameter("Address");
-		Long PhoneNo = Long.parseLong(request.getParameter("PhoneNo"));
+		String PhoneNo = request.getParameter("PhoneNo");
 		String Password = request.getParameter("Password");
 		
 		
@@ -40,7 +42,7 @@ public class RegisterServlet extends HttpServlet {
 	    Random rnd = new Random();
 	    int number = rnd.nextInt(99999);
 		
-		//RequestDispatcher dispatcher = null;
+		RequestDispatcher dispatcher = null;
 		
 		try
 		{
@@ -54,21 +56,24 @@ public class RegisterServlet extends HttpServlet {
 	           pt.setInt(5, Age);
 	           pt.setString(6, Gender);
 	           pt.setString(7,Address);
-	           pt.setLong(8,PhoneNo);
+	           pt.setString(8,PhoneNo);
 	           
 	           int i = pt.executeUpdate();
-	           
-	           if(i!=0)
+	           dispatcher = request.getRequestDispatcher("Registration.jsp");
+	           if(i>0)
 	           {
-	        	   response.sendRedirect("Login.jsp");
+	        	   //response.sendRedirect("Login.jsp");
+	        	   request.setAttribute("status", "success");
+	        	   request.setAttribute("Userid", number);
 	           }
 	           else {
-				    String errorMessage = "User Available";
-				    HttpSession regSession = request.getSession();
-				    regSession.setAttribute("RegistrationError", errorMessage);
-				    response.sendRedirect("Registration.jsp");
+				   //String errorMessage = "User Available";
+				    //HttpSession regSession = request.getSession();
+				    //regSession.setAttribute("RegistrationError", errorMessage);
+				    //response.sendRedirect("Registration.jsp");
+	        	   request.setAttribute("status", "failed");
 				    }
-	        	   
+	        	   dispatcher.forward(request,response);
 		}
 		catch(Exception e)
 		{

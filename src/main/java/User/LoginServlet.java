@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Connection.GetConnection;
 
@@ -27,6 +28,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userID = request.getParameter("username");
 		String password = request.getParameter("password");
+		HttpSession session = request.getSession();
 		RequestDispatcher dispatcher = null;
 		try
 		{
@@ -37,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 			 ResultSet rs = pt.executeQuery();
 			 if(rs.next())
 			 {
+				 session.setAttribute("username", rs.getString("First_Name"));
 				 dispatcher = request.getRequestDispatcher("/Bookflight.jsp");
 			 }
 			 else

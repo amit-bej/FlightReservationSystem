@@ -1,88 +1,164 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Register Account</title>
-<link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei"
-	rel="stylesheet">
-<link href="css/style.css" rel="stylesheet" type="text/css" />
-<!-- 
-<script> 
-function validate()
-{ 
-     var First_Name = document.form.FirstName.value;
-     var Last_Name = document.form.LastName.value;
-     var Age = document.Age.value; 
-     var Gender = document.form.Gender.value;
-     var Address= document.form.Address.value;
-     var PhoneNo= document.form.PhoneNo.value;
-     var Password= document.form.Password.value;
-     
-     if (FirstName==null || FirstName=="")
-     { 
-     alert("First Name can't be blank"); 
-     return false; 
-     }
-     else if (Last_Name==null || Last_Name=="")
-     { 
-     alert("Last Name can't be blank"); 
-     return false; 
-     }
-     else if (Age==null || Age=="")
-     { 
-     alert("Age can't be blank"); 
-     return false; 
-     }
-     else if (Gender==null || Gender=="")
-     { 
-     alert("Gender can't be blank"); 
-     return false; 
-     }
-     else if (Address==null || Address=="")
-     { 
-     alert("Address can't be blank"); 
-     return false; 
-     }
-     else if (PhoneNo==null || PhoneNo=="" || PhoneNo.length<10)
-     { 
-     alert("Invalid PhoneNo"); 
-     return false; 
-     }
-     else if(password.length<6)
-     { 
-     alert("Password must be at least 6 characters long."); 
-     return false; 
-     } 
- } 
-</script> >-->
+  <meta charset="UTF-8">
+  <title>Registration Page</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.css'>
+
 </head>
 <body>
-	<div class="container">
-		<div class="regbox box">
-			<img class="avatar" src="img/collaboration.png">
-			<h1>Register Account</h1>
-			<form action="RegisterServlet" method="get">
-				<p>First Name</p>
-				<input type="text" placeholder="First Name" name="FirstName"
-					required>
-				<p>Last Name</p>
-				<input type="text" placeholder="Last Name" name="LastName" required>
-				<p> Age<p>
-				<input type="text" placeholder="Age" name="Age" required>
-				<p>Gender<p>
-				<input type="text" placeholder="Gender" name="Gender" required>
-				<p>Address<p>
-				<input type="text" placeholder="Address" name="Address" required>
-				<p>PhoneNo<p>
-				<input type="text" placeholder="PhoneNo" name="PhoneNo" required>
-                <p>Password<p>				
-				<input type="password" placeholder="Password" name="Password" required>
-				<input type="submit" value="Register"> <br>
-				<a href="Login.jsp">Already have an Account?</a>
-			</form>
+<input type = "hidden" id ="status" value="<%= request.getAttribute("status") %>">
+<input type = "hidden" id ="status" value="<%= request.getAttribute("Userid") %>">
+<!--Top navigation bar-->
+<div class="uk-section uk-section-primary uk-padding-remove">
+	<div class="uk-container">
+		<nav uk-navbar>
+			<div class="uk-navbar-left">
+			<h2>
+          <img class="uk-margin-small-right " height="48" width="48" src="images/logo.png">
+					XYZ Fight
+			</h2>	
+			</div>
+			<div class="uk-navbar-right">
+				<ul class="uk-navbar-nav">
+					<li class="uk-hidden@s">
+						<a href="#menu-offcanvas" uk-toggle>
+							<i class="fas fa-bars fa-2x"></i>
+						</a>
+					</li>
+					<li class="uk-visible@s">
+						<a href="">
+							Home
+						</a>
+					</li>
+					<li class="uk-visible@s">
+						<a href="">
+							About
+						</a>
+					</li>
+					<li class="uk-visible@s">
+						<a href="">
+							Contact
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>
+
+<div class="uk-section uk-padding-remove">
+	<div class="uk-container">
+		<div class="uk-grid-collapse" uk-grid>
+			<div class="uk-width-expand uk-background-muted uk-padding-small">
+<section class="uk-section uk-section-xsmall" uk-height-viewport="offset-top: true">
+	<div class="uk-container">
+		<div class="uk-flex uk-flex-center">
+			<div class="uk-card uk-card-default uk-card-hover uk-card-body uk-width-large">
+				<h3>Register</h3>
+				<form class="uk-form-stacked" action="RegisterServlet" method="get">
+					<div class="uk-margin">
+						<label class="uk-form-label" for="firstname">
+							First Name
+						</label>
+						<div class="uk-form-controls">
+							<div class="uk-inline uk-width-1-1">
+								<input class="uk-input" id="firstname" name="FirstName" type="text" required>
+							</div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<label class="uk-form-label" for="lastname">
+							Last Name
+						</label>
+						<div class="uk-form-controls">
+							<div class="uk-inline uk-width-1-1">
+								<input class="uk-input" id="lastname" name="LastName" type="text">
+							</div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<label class="uk-form-label" for="Age">
+							Age
+						</label>
+						<div class="uk-form-controls">
+							<div class="uk-inline uk-width-1-1">
+								<input class="uk-input" id="Age" name="Age" type="text">
+							</div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<label class="uk-form-label" for="Gender">
+							Gender
+						</label>
+						<div class="uk-form-controls">
+							<div class="uk-inline uk-width-1-1">
+								<input class="uk-input" id="Gender" name="Gender" type="text">
+							</div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<label class="uk-form-label" for="Address">
+							Address
+						</label>
+						<div class="uk-form-controls">
+							<div class="uk-inline uk-width-1-1">
+								<input class="uk-input" id="Address" name="Address" type="text">
+							</div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<label class="uk-form-label" for="PhoneNO">
+							PhoneNo
+						</label>
+						<div class="uk-form-controls">
+							<div class="uk-inline uk-width-1-1">
+								<input class="uk-input" id="PhoneNo" name="PhoneNO" type="PhoneNo">
+							</div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<label class="uk-form-label" for="Password">
+							Password
+						</label>
+						<div class="uk-form-controls">
+							<div class="uk-inline uk-width-1-1">
+								<input class="uk-input" id="Password" name="Password" type="Password">
+							</div>
+						</div>
+					</div>
+					<div class="uk-margin">
+						<label>
+							 <a href="Login.jsp">Already have an account!</a>.
+						</label>
+					</div>
+					<button class="uk-button uk-button-primary uk-width-1-1" type="submit">Register</button>
+				</form>
+			</div>
 		</div>
 	</div>
+</section>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/js/uikit.js'></script>
+<script src='https://use.fontawesome.com/releases/v5.0.9/js/all.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+<script type="text/javascript">
+	var status = document.getElementById("status").value;
+	if(status == "success")
+		{
+		swal("Congrats!","Account Created Successfully","success");
+		response.sendRedirect("Login.jsp");
+		}
+</script>
 </body>
 </html>

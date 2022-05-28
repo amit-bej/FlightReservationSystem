@@ -19,8 +19,7 @@
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="assets/css/index-styles.css" rel="stylesheet" />
-
+<link href="./index-styles.css" rel="stylesheet" />
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -28,9 +27,7 @@
 		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
 		id="mainNav">
 		<div class="container">
-			<img class="uk-margin-small-right " height="48" width="48"
-				src="images/logo.png"> <a class="navbar-brand"
-				href="#page-top">XYZ Flights</a>
+			<a class="navbar-brand" href="#page-top">Unique Developer</a>
 			<button
 				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
 				type="button" data-bs-toggle="collapse"
@@ -41,120 +38,147 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item mx-0 mx-lg-1"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Book
-							Flight</a></li>
+						class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
 					<li class="nav-item mx-0 mx-lg-1"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
 					<li class="nav-item mx-0 mx-lg-1"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
 					<li class="nav-item mx-0 mx-lg-1"><a
 						class="nav-link py-3 px-0 px-lg-3 rounded" href="">Logout</a></li>
-
+					
 				</ul>
 			</div>
 		</div>
 	</nav>
-
+	<!-- Masthead-->
+	<header class="masthead bg-primary text-white text-center">
+		<div class="container d-flex align-items-center flex-column">
+			<!-- Masthead Avatar Image-->
+			<img class="masthead-avatar mb-5" src="assets/img/avataaars.svg"
+				alt="..." />
+			<!-- Masthead Heading-->
+			<h1 class="masthead-heading text-uppercase mb-0">Welcome To Unique Developer</h1>
+			<!-- Icon Divider-->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon">
+					<i class="fas fa-star"></i>
+				</div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<!-- Masthead Subheading-->
+			<p class="masthead-subheading font-weight-light mb-0">Java
+				Development - Web Development - Python</p>
+		</div>
+	</header>
 	<!-- Portfolio Section-->
 	<section class="page-section portfolio" id="portfolio">
 		<div class="container">
 			<!-- Portfolio Section Heading-->
-			<div id="booking" class="section">
-				<div class="section-center">
-					<div class="container">
-						<div class="row">
-							<div class="booking-form">
-								<form>
-									<div class="form-group">
-										<div class="form-checkbox">
-											<label for="roundtrip"> <input type="radio"
-												id="roundtrip" name="flight-type"> <span></span>Roundtrip
-											</label> <label for="one-way"> <input type="radio"
-												id="one-way" name="flight-type"> <span></span>One
-												way
-											</label> <label for="multi-city"> <input type="radio"
-												id="multi-city" name="flight-type"> <span></span>Multi-City
-											</label>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Flying from</span> <input
-													class="form-control" type="text"
-													placeholder="City or airport">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Flyning to</span> <input
-													class="form-control" type="text"
-													placeholder="City or airport">
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-3">
-											<div class="form-group">
-												<span class="form-label">Departing</span> <input
-													class="form-control" type="date" required>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="form-group">
-												<span class="form-label">Returning</span> <input
-													class="form-control" type="date" required>
-											</div>
-										</div>
-										<div class="col-md-2">
-											<div class="form-group">
-												<span class="form-label">Adults (18+)</span> <select
-													class="form-control">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-												</select> <span class="select-arrow"></span>
-											</div>
-										</div>
-										<div class="col-md-2">
-											<div class="form-group">
-												<span class="form-label">Children (0-17)</span> <select
-													class="form-control">
-													<option>0</option>
-													<option>1</option>
-													<option>2</option>
-												</select> <span class="select-arrow"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-3">
-											<div class="form-group">
-												<span class="form-label">Travel class</span> <select
-													class="form-control">
-													<option>Economy class</option>
-													<option>Business class</option>
-													<option>First class</option>
-												</select> <span class="select-arrow"></span>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="form-btn">
-												<a href="flightlist.jsp">
-													<button class="submit-btn" type="button">Show
-														flights</button>
-												</a>
-											</div>
-										</div>
-									</div>
-								</form>
+			<h2
+				class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+			<!-- Icon Divider-->
+			<div class="divider-custom">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon">
+					<i class="fas fa-star"></i>
+				</div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<!-- Portfolio Grid Items-->
+			<div class="row justify-content-center">
+				<!-- Portfolio Item 1-->
+				<div class="col-md-6 col-lg-4 mb-5">
+					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal1">
+						<div
+							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+							<div
+								class="portfolio-item-caption-content text-center text-white">
+								<i class="fas fa-plus fa-3x"></i>
 							</div>
 						</div>
+						<img class="img-fluid" src="assets/img/portfolio/cabin.png"
+							alt="..." />
+					</div>
+				</div>
+				<!-- Portfolio Item 2-->
+				<div class="col-md-6 col-lg-4 mb-5">
+					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal2">
+						<div
+							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+							<div
+								class="portfolio-item-caption-content text-center text-white">
+								<i class="fas fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img class="img-fluid" src="assets/img/portfolio/cake.png"
+							alt="..." />
+					</div>
+				</div>
+				<!-- Portfolio Item 3-->
+				<div class="col-md-6 col-lg-4 mb-5">
+					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal3">
+						<div
+							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+							<div
+								class="portfolio-item-caption-content text-center text-white">
+								<i class="fas fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img class="img-fluid" src="assets/img/portfolio/circus.png"
+							alt="..." />
+					</div>
+				</div>
+				<!-- Portfolio Item 4-->
+				<div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal4">
+						<div
+							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+							<div
+								class="portfolio-item-caption-content text-center text-white">
+								<i class="fas fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img class="img-fluid" src="assets/img/portfolio/game.png"
+							alt="..." />
+					</div>
+				</div>
+				<!-- Portfolio Item 5-->
+				<div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal5">
+						<div
+							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+							<div
+								class="portfolio-item-caption-content text-center text-white">
+								<i class="fas fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img class="img-fluid" src="assets/img/portfolio/safe.png"
+							alt="..." />
+					</div>
+				</div>
+				<!-- Portfolio Item 6-->
+				<div class="col-md-6 col-lg-4">
+					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
+						data-bs-target="#portfolioModal6">
+						<div
+							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+							<div
+								class="portfolio-item-caption-content text-center text-white">
+								<i class="fas fa-plus fa-3x"></i>
+							</div>
+						</div>
+						<img class="img-fluid" src="assets/img/portfolio/submarine.png"
+							alt="..." />
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</section>
 	<!-- About Section-->
 	<section class="page-section bg-primary text-white mb-0" id="about">
@@ -596,5 +620,10 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
+	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+	<!-- * *                               SB Forms JS                               * *-->
+	<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
