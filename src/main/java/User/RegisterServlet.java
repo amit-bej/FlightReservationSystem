@@ -62,7 +62,7 @@ public class RegisterServlet extends HttpServlet {
 	           dispatcher = request.getRequestDispatcher("Registration.jsp");
 	           if(i>0)
 	           {
-	        	   response.sendRedirect("Login.jsp");
+	        	   //response.sendRedirect("Login.jsp");
 	        	   request.setAttribute("status", "success");
 	        	   //request.setAttribute("userid", number);
 	           }
@@ -73,7 +73,7 @@ public class RegisterServlet extends HttpServlet {
 				    //response.sendRedirect("Registration.jsp");
 	        	   request.setAttribute("status", "failed");
 				    }
-	        	   //dispatcher.forward(request,response);
+	        	   dispatcher.forward(request,response);
 		}
 		catch(Exception e)
 		{

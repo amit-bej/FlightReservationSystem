@@ -10,7 +10,6 @@
 </head>
 <body>
 <input type = "hidden" id ="status" value="<%= request.getAttribute("status") %>">
-<input type = "hidden" id ="status" value="<%= request.getAttribute("Userid") %>">
 <!--Top navigation bar-->
 <div class="uk-section uk-section-primary uk-padding-remove">
 	<div class="uk-container">
@@ -144,14 +143,10 @@
 	
 <script type="text/javascript">
 	var status = document.getElementById("status").value;
-	var id = request.getAttribute("userid");
+	//var id = request.getAttribute("userid");
 	if(status == "success")
 		{
-		swal({
-			title:"Congrats!",
-			text:"Account Created Successfully. /n Your id is:"+id,
-			icon:"success"});
-		    response.sendRedirect("Login.jsp");
+		swal("Congratulations","Registered Sussecfull","success");
 		}
 </script>
 </body>

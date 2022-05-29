@@ -14,6 +14,8 @@
 	
     <!-- Custom styles for this template -->
     <link href="./assets/css/home-carousel.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.css'>
+    
   </head>
 
   
@@ -22,36 +24,38 @@
   
 	<header>
 	<!--Navigation Bar-->
+
+	<div class="uk-section uk-section-primary uk-padding-remove">
 	<div class="uk-container">
 		<nav uk-navbar>
-			<div class="uk-navbar-right">
+			<div class="uk-navbar-left">
 			<h2>
           <img class="uk-margin-small-right " height="48" width="48" src="images/logo.png">
 					XYZ Fight
-			</h2>
-			<div class="navbar-right" float = right>
-				<ul>
-					<li>
-						<a href="home.jsp">
+			</h2>	
+			</div>
+			<div class="uk-navbar-right" float = right>
+				<ul class="uk-navbar-nav">
+					<li class="uk-visible@s">
+						<a href="">
 							Home
 						</a>
 					</li>
 					<li class="uk-visible@s">
-						<a href="index.jsp">
+						<a href="">
 							User
 						</a>
 					</li>
 					<li class="uk-visible@s">
-						<a href="admin.jsp">
+						<a href="">
 							Admin
 						</a>
 					</li>
 				</ul>
-			</div>	
 			</div>
-			
 		</nav>
 	</div>
+</div>
 	</header>
 	
 	<!--Slider-->
