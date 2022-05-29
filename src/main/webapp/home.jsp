@@ -28,12 +28,11 @@
 	<div class="uk-section uk-section-primary uk-padding-remove">
 	<div class="uk-container">
 		<nav uk-navbar>
-			<div class="uk-navbar-left">
+			<div class="uk-navbar-right">
 			<h2>
           <img class="uk-margin-small-right " height="48" width="48" src="images/logo.png">
 					XYZ Fight
 			</h2>	
-			</div>
 			<div class="uk-navbar-right" float = right>
 				<ul class="uk-navbar-nav">
 					<li class="uk-visible@s">
@@ -42,17 +41,19 @@
 						</a>
 					</li>
 					<li class="uk-visible@s">
-						<a href="">
+						<a href="index.jsp">
 							User
 						</a>
 					</li>
 					<li class="uk-visible@s">
-						<a href="">
+						<a href="admin.jsp">
 							Admin
 						</a>
 					</li>
 				</ul>
 			</div>
+			</div>
+			
 		</nav>
 	</div>
 </div>
@@ -70,7 +71,7 @@
 		<div class="carousel-item active">
 			<img class="d-block" src="./assets/img/main.jpg" alt="First slide">
 			<div class="carousel-caption d-md-block text-top">
-				<h1>Welcome to Turkish Airlines!</h1>
+				<h1>Welcome to XYZ Airlines!</h1>
 			</div>
 		</div>
 		
@@ -102,9 +103,7 @@
 
 
                 <footer class="text-center" style="color:white;background:url('./assets/img/nav.jpg'); margin-bottom:0px; margin-top:4px; padding-top:3%; padding-bottom:4px; border-top:2px solid black;">
-			<h6>Turkish Airlines 2017 &copy All Rights Reserved.</h6>
-                        <p><i>Web-site designed by  <a href="https://www.linkedin.com/in/harismuneer/">Haris Muneer</a></i></p>
-			<img src="https://turkishairlines.ssl.cdn.sdlmedia.com/636365652314339988GE.png"/ height=13% width=13%>
+			<h6>XYZ Airlines 2017 &copy All Rights Reserved.</h6>
 		</footer>
     
     <!-- Bootstrap core JavaScript
