@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*"%>
+<%@ page import="Connection.GetConnection"%>
 
 <% String flightID = request.getParameter("flightID"); %>
 <!doctype html>
@@ -52,9 +53,8 @@
 <% 
 
 try{
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","root","root");
-    Statement statement = conn.createStatement();
+	Connection con = GetConnection.getConnection();
+    Statement statement = con.createStatement();
 	String command = "SELECT * FROM FLIGHT_DETAILS";
 	ResultSet resultSet = statement.executeQuery(command);
 	while(resultSet.next()){
@@ -85,7 +85,7 @@ try{
 		
 		<%
 		}
-	conn.close();
+	con.close();
 }
 catch(Exception e){
     out.print(e);

@@ -42,6 +42,7 @@ public class RegisterServlet extends HttpServlet {
 	    Random rnd = new Random();
 	    int number = rnd.nextInt(99999);
 		
+	    //Encryption
 		RequestDispatcher dispatcher = null;
 		
 		try

@@ -28,7 +28,7 @@
 						</a>
 					</li>
 					<li class="uk-visible@s">
-						<a href="">
+						<a href="home.jsp">
 							Home
 						</a>
 					</li>

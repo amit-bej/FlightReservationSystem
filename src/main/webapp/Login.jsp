@@ -14,7 +14,7 @@
 				src="images/logo.png"> XYZ Fight
 		</h2>
 		<div class="topnav-right" float: right>
-			<a href="#">Home</a> 
+			<a href="home.jsp">Home</a> 
 		</div>
 	</div>
 	<!-- partial:index.partial.html -->

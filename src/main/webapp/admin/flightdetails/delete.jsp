@@ -1,12 +1,12 @@
 <%@ page import="java.sql.*"%>
+<%@ page import="Connection.GetConnection"%>
 <%
 
 String flightID = request.getParameter("flightID");
 
 try{
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","root","root");
-    Statement statement = conn.createStatement();
+	Connection con = GetConnection.getConnection();
+    Statement statement = con.createStatement();
 	String command = "DELETE FLIGHT_DETAILS WHERE FLIGHT_ID='"+flightID+"'";
     statement.executeUpdate(command);
 	out.println("Data is successfully deleted!");

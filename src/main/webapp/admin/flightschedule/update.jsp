@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*"%>
+<%@ page import="Connection.GetConnection"%>
 <%
 
 String flightID = request.getParameter("flightID");
@@ -6,9 +7,8 @@ String flightname = request.getParameter("flightname");
 String days[] = request.getParameterValues("days");
 
 try{
-	Class.forName("oracle.jdbc.driver.OracleDriver");
-    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","root","root");
-    Statement statement = conn.createStatement();
+	Connection con = GetConnection.getConnection();
+    Statement statement = con.createStatement();
     String sql = "DELETE FLIGHT_SCHEDULE_DETAILS WHERE FLIGHT_ID='"+flightID+"'";
     statement.executeUpdate(sql);
     for (int i = 0; i < days.length; i++) {
