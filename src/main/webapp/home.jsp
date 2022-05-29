@@ -41,7 +41,7 @@
 						</a>
 					</li>
 					<li class="uk-visible@s">
-						<a href="index.jsp">
+						<a href="Login.jsp">
 							User
 						</a>
 					</li>
