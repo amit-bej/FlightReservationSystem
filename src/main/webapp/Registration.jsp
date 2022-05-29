@@ -33,16 +33,6 @@
 							Home
 						</a>
 					</li>
-					<li class="uk-visible@s">
-						<a href="">
-							About
-						</a>
-					</li>
-					<li class="uk-visible@s">
-						<a href="">
-							Contact
-						</a>
-					</li>
 				</ul>
 			</div>
 		</nav>
@@ -115,7 +105,7 @@
 						</label>
 						<div class="uk-form-controls">
 							<div class="uk-inline uk-width-1-1">
-								<input class="uk-input" id="PhoneNo" name="PhoneNO" type="PhoneNo">
+								<input class="uk-input" id="PhoneNo" name="PhoneNo" type="text">
 							</div>
 						</div>
 					</div>
@@ -154,10 +144,14 @@
 	
 <script type="text/javascript">
 	var status = document.getElementById("status").value;
+	var id = request.getAttribute("userid");
 	if(status == "success")
 		{
-		swal("Congrats!","Account Created Successfully","success");
-		response.sendRedirect("Login.jsp");
+		swal({
+			title:"Congrats!",
+			text:"Account Created Successfully. /n Your id is:"+id,
+			icon:"success"});
+		    response.sendRedirect("Login.jsp");
 		}
 </script>
 </body>

@@ -13,11 +13,8 @@
 			<img class="uk-margin-small-right " height="48" width="48"
 				src="images/logo.png"> XYZ Fight
 		</h2>
-		<div class="topnav-right" float: right;>
+		<div class="topnav-right" float: right>
 			<a href="#">Home</a> 
-			<a href="#about">About</a> 
-			<a href="#about">Contact</a>
-
 		</div>
 	</div>
 	<!-- partial:index.partial.html -->
@@ -30,8 +27,8 @@
 				<input type="text" id="login" class="fadeIn second" name="username"
 					placeholder="username"> <input type="password"
 					id="password" class="fadeIn third" name="password"
-					placeholder="password"> <a class="underlineHover"
-					href="Forgot.jsp">Forgot Password?</a><br> <input
+					placeholder="password"> <!--  <a class="underlineHover"
+					href="Forgot.jsp">Forgot Password?</a>--><br> <input
 					type="submit" class="fadeIn fourth" value="Log In">
 			</form>
 			<div id="formFooter">

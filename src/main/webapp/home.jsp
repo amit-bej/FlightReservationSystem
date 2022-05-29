@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="https://www-turkishairlines.akamaized.net/theme/img/icons/favicon.ico">
-    <title>Turkish Airlines</title>
+    <title>XYZ Airlines</title>
 
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -22,27 +22,36 @@
   
 	<header>
 	<!--Navigation Bar-->
-    <nav class="navbar navbar-expand-md navbar-dark font-weight-bold nav justify-content-center nav-justified" style="background:url('./assets/img/nav.jpg'); border:3px solid black;">
-      <a class="navbar-brand" href="home.jsp">
-	  	<img src="https://turkishairlines.ssl.cdn.sdlmedia.com/636373437847588165FE.png" alt="Turkish Airlines Logo">
-		<img src="https://turkishairlines.ssl.cdn.sdlmedia.com/636373437818057738TL.png" alt="Img Logo">				
-	  </a>
-	  
-	 <!-- When navigation bar is collapsed"-->
-	 <div class="collapse navbar-collapse" style="display:inline!important;" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto nav nav-justified">
-          <li class="nav-item">
-            <a class="nav-link" href="home.jsp">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="BookFlight">Book Flight</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+	<div class="uk-container">
+		<nav uk-navbar>
+			<div class="uk-navbar-right">
+			<h2>
+          <img class="uk-margin-small-right " height="48" width="48" src="images/logo.png">
+					XYZ Fight
+			</h2>
+			<div class="navbar-right" float = right>
+				<ul>
+					<li>
+						<a href="home.jsp">
+							Home
+						</a>
+					</li>
+					<li class="uk-visible@s">
+						<a href="index.jsp">
+							User
+						</a>
+					</li>
+					<li class="uk-visible@s">
+						<a href="admin.jsp">
+							Admin
+						</a>
+					</li>
+				</ul>
+			</div>	
+			</div>
+			
+		</nav>
+	</div>
 	</header>
 	
 	<!--Slider-->

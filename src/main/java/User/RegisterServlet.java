@@ -31,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
 		String First_Name = request.getParameter("FirstName");
 		String Last_Name = request.getParameter("LastName");
 		//String DOB = request.getParameter("DOB");
-		int Age = Integer.parseInt(request.getParameter("Age"));
+		String Age = request.getParameter("Age");
 		String Gender = request.getParameter("Gender");
 		String Address = request.getParameter("Address");
 		String PhoneNo = request.getParameter("PhoneNo");
@@ -53,7 +53,7 @@ public class RegisterServlet extends HttpServlet {
 	           pt.setString(2,Password );
 	           pt.setString(3, First_Name);
 	           pt.setString(4, Last_Name);
-	           pt.setInt(5, Age);
+	           pt.setString(5, Age);
 	           pt.setString(6, Gender);
 	           pt.setString(7,Address);
 	           pt.setString(8,PhoneNo);
@@ -62,18 +62,18 @@ public class RegisterServlet extends HttpServlet {
 	           dispatcher = request.getRequestDispatcher("Registration.jsp");
 	           if(i>0)
 	           {
-	        	   //response.sendRedirect("Login.jsp");
+	        	   response.sendRedirect("Login.jsp");
 	        	   request.setAttribute("status", "success");
-	        	   request.setAttribute("Userid", number);
+	        	   //request.setAttribute("userid", number);
 	           }
 	           else {
 				   //String errorMessage = "User Available";
-				    //HttpSession regSession = request.getSession();
+				   	//HttpSession regSession = request.getSession();
 				    //regSession.setAttribute("RegistrationError", errorMessage);
 				    //response.sendRedirect("Registration.jsp");
 	        	   request.setAttribute("status", "failed");
 				    }
-	        	   dispatcher.forward(request,response);
+	        	   //dispatcher.forward(request,response);
 		}
 		catch(Exception e)
 		{

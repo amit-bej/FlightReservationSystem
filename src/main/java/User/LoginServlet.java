@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 			 ResultSet rs = pt.executeQuery();
 			 if(rs.next())
 			 {
-				 session.setAttribute("username", rs.getString("First_Name"));
+				 session.setAttribute("username", rs.getString("FIRST_NAME"));
 				 dispatcher = request.getRequestDispatcher("/Bookflight.jsp");
 			 }
 			 else
