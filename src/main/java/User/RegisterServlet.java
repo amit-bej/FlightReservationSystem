@@ -1,6 +1,9 @@
 package User;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -24,6 +27,30 @@ public class RegisterServlet extends HttpServlet {
         super();
     }
 	
+	//Encryption
+	 public static String MD5(String password) {
+	        final byte[] defaultBytes = password.getBytes();
+	        try {
+	            final MessageDigest md5MsgDigest = MessageDigest.getInstance("MD5");
+	            md5MsgDigest.reset();
+	            md5MsgDigest.update(defaultBytes);
+	            final byte messageDigest[] = md5MsgDigest.digest();
+
+	            final StringBuffer hexString = new StringBuffer();
+	            for (final byte element : messageDigest) {
+	                final String hex = Integer.toHexString(0xFF & element);
+	                if (hex.length() == 1) {
+	                    hexString.append('0');
+	                }
+	                hexString.append(hex);
+	            }
+	            password = hexString + "";
+	        } catch (final NoSuchAlgorithmException nsae) {
+	            nsae.printStackTrace();
+	        }
+	        return password;
+	 }
+	
 	Connection con = GetConnection.getConnection();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -35,14 +62,13 @@ public class RegisterServlet extends HttpServlet {
 		String Gender = request.getParameter("Gender");
 		String Address = request.getParameter("Address");
 		String PhoneNo = request.getParameter("PhoneNo");
-		String Password = request.getParameter("Password");
-		
+		String Password = MD5(request.getParameter("Password"));
 		
 		//Creating random user id for user
 	    Random rnd = new Random();
 	    int number = rnd.nextInt(99999);
 		
-	    //Encryption
+	    
 		RequestDispatcher dispatcher = null;
 		
 		try

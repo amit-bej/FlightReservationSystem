@@ -1,6 +1,8 @@
 package User;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,10 +26,32 @@ public class LoginServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+	 public static String MD5(String password) {
+	        final byte[] defaultBytes = password.getBytes();
+	        try {
+	            final MessageDigest md5MsgDigest = MessageDigest.getInstance("MD5");
+	            md5MsgDigest.reset();
+	            md5MsgDigest.update(defaultBytes);
+	            final byte messageDigest[] = md5MsgDigest.digest();
+
+	            final StringBuffer hexString = new StringBuffer();
+	            for (final byte element : messageDigest) {
+	                final String hex = Integer.toHexString(0xFF & element);
+	                if (hex.length() == 1) {
+	                    hexString.append('0');
+	                }
+	                hexString.append(hex);
+	            }
+	            password = hexString + "";
+	        } catch (final NoSuchAlgorithmException nsae) {
+	            nsae.printStackTrace();
+	        }
+	        return password;
+	 }
 	Connection con = GetConnection.getConnection();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userID = request.getParameter("username");
-		String password = request.getParameter("password");
+		String password = MD5(request.getParameter("password"));
 		HttpSession session = request.getSession();
 		RequestDispatcher dispatcher = null;
 		try
