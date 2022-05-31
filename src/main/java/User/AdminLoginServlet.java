@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import Connection.GetConnection;
 
@@ -34,14 +34,14 @@ public class AdminLoginServlet extends HttpServlet {
 			 if(rs.next())
 			 {
 				 
-				 response.sendRedirect("admin/flightdetails/index.jsp");
+				 dispatcher = request.getRequestDispatcher("admin/flightdetails/index.jsp");
 			 }
 			 else
 			 {
-				 
-				 response.sendRedirect("Adminlogin.jsp");
+				 request.setAttribute("status", "failed");
+				 dispatcher = request.getRequestDispatcher("Adminlogin.jsp");
 			 }
-			
+			 dispatcher.forward(request, response);
 		}
 		catch(Exception e)
 		{

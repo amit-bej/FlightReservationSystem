@@ -24,13 +24,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
+                        <a class="nav-link text-dark" aria-current="page" href="home.jsp">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="Login.jsp">Login</a>
+                        <a class="nav-link text-dark" href="Login.jsp">User</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="Registration.jsp">Register</a>
+                        <a class="nav-link text-dark" href="Adminlogin.jsp">Admin</a>
                     </li>
                 </ul>
             </div>

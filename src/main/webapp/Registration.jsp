@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
+                        <a class="nav-link text-dark" aria-current="page" href="index.jsp">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="Login.jsp">Login</a>
@@ -62,7 +62,7 @@
 						</label>
 						<div class="uk-form-controls">
 							<div class="uk-inline uk-width-1-1">
-								<input class="uk-input" id="lastname" name="LastName" type="text">
+								<input class="uk-input" id="lastname" name="LastName" type="text" required>
 							</div>
 						</div>
 					</div>
@@ -72,7 +72,7 @@
 						</label>
 						<div class="uk-form-controls">
 							<div class="uk-inline uk-width-1-1">
-								<input class="uk-input" id="Age" name="Age" type="text">
+								<input class="uk-input" id="Age" name="Age" type="text" required>
 							</div>
 						</div>
 					</div>
@@ -82,7 +82,7 @@
 						</label>
 						<div class="uk-form-controls">
 							<div class="uk-inline uk-width-1-1">
-								<input class="uk-input" id="Gender" name="Gender" type="text">
+								<input class="uk-input" id="Gender" name="Gender" type="text" required>
 							</div>
 						</div>
 					</div>
@@ -92,7 +92,7 @@
 						</label>
 						<div class="uk-form-controls">
 							<div class="uk-inline uk-width-1-1">
-								<input class="uk-input" id="Address" name="Address" type="text">
+								<input class="uk-input" id="Address" name="Address" type="text" required>
 							</div>
 						</div>
 					</div>
@@ -102,7 +102,7 @@
 						</label>
 						<div class="uk-form-controls">
 							<div class="uk-inline uk-width-1-1">
-								<input class="uk-input" id="PhoneNo" name="PhoneNo" type="text">
+								<input class="uk-input" id="PhoneNo" name="PhoneNo" type="text" required>
 							</div>
 						</div>
 					</div>
@@ -112,7 +112,7 @@
 						</label>
 						<div class="uk-form-controls">
 							<div class="uk-inline uk-width-1-1">
-								<input class="uk-input" id="Password" name="Password" type="Password">
+								<input class="uk-input" id="Password" name="Password" type="Password" required>
 							</div>
 						</div>
 					</div>
