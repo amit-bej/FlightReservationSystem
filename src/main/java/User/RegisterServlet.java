@@ -91,7 +91,7 @@ public class RegisterServlet extends HttpServlet {
 	           {
 	        	   //response.sendRedirect("Login.jsp");
 	        	   request.setAttribute("status", "success");
-	        	   //request.setAttribute("userid", number);
+	        	   request.setAttribute("userid", number);
 	           }
 	           else {
 				   //String errorMessage = "User Available";
