@@ -1,120 +1,51 @@
-<!DOCTYPE html>
-
-
+<!doctype html>
 <html lang="en">
 
- <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="https://www-turkishairlines.akamaized.net/theme/img/icons/favicon.ico">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" />
     <title>XYZ Airlines</title>
+</head>
 
-    <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	
-    <!-- Custom styles for this template -->
-    <link href="./assets/css/home-carousel.css" rel="stylesheet">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.42/css/uikit.css'>
-    
-  </head>
-
-  
-  <body style="background: -webkit-radial-gradient(rgb(118, 10, 138), rgb(5, 11, 18));background: radial-gradient(rgb(118, 10, 138), rgb(5, 11, 18));height:100%; min-height:100%;margin:0;padding:0;" >
-
-  
-	<header>
-	<!--Navigation Bar-->
-
-	<div class="uk-section uk-section-primary uk-padding-remove">
-	<div class="uk-container">
-		<nav uk-navbar>
-			<div class="uk-navbar-right">
-			<h2>
-          <img class="uk-margin-small-right " height="48" width="48" src="images/logo.png">
-					XYZ Fight
-			</h2>	
-			<div class="uk-navbar-right" float = right>
-				<ul class="uk-navbar-nav">
-					<li class="uk-visible@s">
-						<a href="">
-							Home
-						</a>
-					</li>
-					<li class="uk-visible@s">
-						<a href="Login.jsp">
-							User
-						</a>
-					</li>
-					<li class="uk-visible@s">
-						<a href="admin.jsp">
-							Admin
-						</a>
-					</li>
-				</ul>
-			</div>
-			</div>
-			
-		</nav>
-	</div>
-</div>
-	</header>
-	
-	<!--Slider-->
-   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-pause="false" style="border-bottom:3px solid black; margin-bottom:1px;">
-	<ol class="carousel-indicators">
-		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-	</ol>
-	
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<img class="d-block" src="./assets/img/main.jpg" alt="First slide">
-			<div class="carousel-caption d-md-block text-top">
-				<h1>Welcome to XYZ Airlines!</h1>
-			</div>
-		</div>
-		
-		<div class="carousel-item">
-			<img class="d-block img-fluid" src="./assets/img/galaxy.jpg" alt="Second slide">
-			<div class="carousel-caption d-md-block">
-				<h1>Where do you want to explore?</h1>
-			</div>
-		</div>
-    
-		<div class="carousel-item">
-			<img class="d-block img-fluid" src="./assets/img/milky.jpg" alt="Third slide">
-			<div class="carousel-caption d-md-block">
-				<h1>Awarded the best European Airlines for 2011-16!</h1>
-			</div>
-		</div>
-	</div>
-	
-	<!--Carousel indicators-->
-		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid px-md-5">
+            <a class="navbar-brand fs-4" href="/"><img src="images/logo.png" width="50" height="50" /> XYZ Airlines</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="Login.jsp">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="Registration.jsp">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section style="height:90vh;">
+        <img src="images/parallax.jpg" width="100%" height="100%" />
+    </section>
 
 
-                <footer class="text-center" style="color:white;background:url('./assets/img/nav.jpg'); margin-bottom:0px; margin-top:4px; padding-top:3%; padding-bottom:4px; border-top:2px solid black;">
-			<h6>XYZ Airlines 2017 &copy All Rights Reserved.</h6>
-		</footer>
-    
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg>
+
 </body>
+
 </html>
