@@ -20,6 +20,9 @@
 	rel="stylesheet" type="text/css" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="assets/css/index-styles.css" rel="stylesheet" />
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet" href="assets/css/bookflightbootstrap.min.css" />
+
 
 </head>
 <body id="page-top">
@@ -56,10 +59,12 @@
 			</div>
 		</div>
 	</nav>
-
+<br>
 	<!-- Portfolio Section-->
+	<form action="searchflight.jsp" >
+
 	<section class="page-section portfolio" id="portfolio">
-		<div class="container">
+		<div class="container" )>
 			<!-- Portfolio Section Heading-->
 			<div id="booking" class="section">
 				<div class="section-center">
@@ -80,21 +85,55 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Flying from</span> <input
-													class="form-control" type="text"
-													placeholder="City or airport">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<span class="form-label">Flyning to</span> <input
-													class="form-control" type="text"
-													placeholder="City or airport">
-											</div>
-										</div>
-									</div>
+									<div class="col-md-6">
+								<div class="form-group">
+								<span class="form-label">Flying from</span>
+									<select class="form-control" aria-label="Default select example"
+										name="source" required>
+										<option value="" selected disabled>Source</option>
+										<option value="Afghanistan">Afghanistan</option>
+										<option value="Antarctica">Antarctica</option>
+										<option value="Australia">Australia</option>
+										<option value="Bangladesh">Bangladesh</option>
+										<option value="Brazil">Bangladesh</option>
+										<option value="Canada">Canada</option>
+										<option value="Denmark">Denmark</option>
+										<option value="Egypt">Egypt</option>
+										<option value="France">France</option>
+										<option value="Germany">Germany</option>
+										<option value="India">India</option>
+										<option value="Japan">Japan</option>
+										<option value="Singapore">Singapore</option>
+										<option value="United States">United States</option>
+										<option value="Zimbabwe">Zimbabwe</option>
+									</select>
+								</div>
+								</div>
+								<div class="col-md-6">
+								<div class="form-group">
+								<span class="form-label">Flying to</span>
+									<select class="form-control" aria-label="Default select example"
+										name="destination" required>
+										<option value="" selected disabled>Destination</option>
+										<option value="Afghanistan">Afghanistan</option>
+										<option value="Antarctica">Antarctica</option>
+										<option value="Australia">Australia</option>
+										<option value="Bangladesh">Bangladesh</option>
+										<option value="Brazil">Bangladesh</option>
+										<option value="Canada">Canada</option>
+										<option value="Denmark">Denmark</option>
+										<option value="Egypt">Egypt</option>
+										<option value="France">France</option>
+										<option value="Germany">Germany</option>
+										<option value="India">India</option>
+										<option value="Japan">Japan</option>
+										<option value="Singapore">Singapore</option>
+										<option value="United States">United States</option>
+										<option value="Zimbabwe">Zimbabwe</option>
+									</select>
+								</div>
+								</div>
+							</div>
 									<div class="row">
 										<div class="col-md-3">
 											<div class="form-group">
@@ -143,8 +182,17 @@
 										<div class="col-md-3">
 											<div class="form-btn">
 												<a href="flightlist.jsp">
-													<button class="submit-btn" type="button">Show
-														flights</button>
+													<button type="button" style = "color: #fff;
+    background-color: #f23e3e;
+    font-weight: 400;
+    height: 50px;
+    font-size: 14px;
+    border: none;
+    width: 100%;
+    border-radius: 40px;
+    text-transform: uppercase;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all">Show flights</button>
 												</a>
 											</div>
 										</div>
@@ -158,6 +206,8 @@
 		</div>
 		
 	</section>
+	</form>	
+	<br>
 	<!-- About Section-->
 	<section class="page-section bg-primary text-white mb-0" id="about">
 		<div class="container">

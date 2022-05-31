@@ -76,18 +76,55 @@
         <div class="logo">
             XyzAirlines
         </div>
+         <form action="#">
         <div class="navbar">
-            Source<input type="text" id="source">
-            Destination <input type="text" id="destination">
-            Date<input type="date" id="dateid">
+        Source
+           <select class="form-select" aria-label="Default select example"
+										name="source" required>
+										<option value="" selected disabled>Source</option>
+										<option value="Afghanistan">Afghanistan</option>
+										<option value="Antarctica">Antarctica</option>
+										<option value="Australia">Australia</option>
+										<option value="Bangladesh">Bangladesh</option>
+										<option value="Brazil">Bangladesh</option>
+										<option value="Canada">Canada</option>
+										<option value="Denmark">Denmark</option>
+										<option value="Egypt">Egypt</option>
+										<option value="France">France</option>
+										<option value="Germany">Germany</option>
+										<option value="India">India</option>
+										<option value="Japan">Japan</option>
+										<option value="Singapore">Singapore</option>
+										<option value="United States">United States</option>
+										<option value="Zimbabwe">Zimbabwe</option>
+									</select>
+Destination           <select class="form-select" aria-label="Default select example"
+										name="source" required>
+										<option value="" selected disabled>Destination</option>
+										<option value="Afghanistan">Afghanistan</option>
+										<option value="Antarctica">Antarctica</option>
+										<option value="Australia">Australia</option>
+										<option value="Bangladesh">Bangladesh</option>
+										<option value="Brazil">Bangladesh</option>
+										<option value="Canada">Canada</option>
+										<option value="Denmark">Denmark</option>
+										<option value="Egypt">Egypt</option>
+										<option value="France">France</option>
+										<option value="Germany">Germany</option>
+										<option value="India">India</option>
+										<option value="Japan">Japan</option>
+										<option value="Singapore">Singapore</option>
+										<option value="United States">United States</option>
+										<option value="Zimbabwe">Zimbabwe</option>
+									</select>
+            Date <input type="date">
             <!-- add user ui html in href of ModifySearch -->
-            <a href="">ModifySearch</a>
-            <form action="#">
-                <input type="submit" value="Search" class="search-data" id="search">
-            </form>
+            <input type="submit" value="Search" class="search-data" id="search">
+            
            
 
         </div>
+        </form>
     </nav>
     
 
