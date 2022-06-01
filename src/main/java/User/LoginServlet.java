@@ -56,14 +56,14 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		try
 		{
-			 PreparedStatement pt = con.prepareStatement("select * from OFRS.USER_DETAILS where USER_ID= ? and PASSWORD = ?");
+			 PreparedStatement pt = con.prepareStatement("select * from OFRS.LOGIN_CREDENTIALS where USER_ID= ? and PASSWORD = ?");
 			 pt.setString(1,userID);
 			 pt.setString(2,password);
 			 
 			 ResultSet rs = pt.executeQuery();
 			 if(rs.next())
 			 {
-				 session.setAttribute("username", rs.getString("FIRST_NAME"));
+				 session.setAttribute("username", rs.getString("USER_ID"));
 				 dispatcher = request.getRequestDispatcher("/Bookflight.jsp");
 			 }
 			 else

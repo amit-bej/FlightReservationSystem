@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
@@ -63,7 +64,7 @@ public class RegisterServlet extends HttpServlet {
 		String Address = request.getParameter("Address");
 		String PhoneNo = request.getParameter("PhoneNo");
 		String Password = MD5(request.getParameter("Password"));
-		
+		String u = "U";
 		//Creating random user id for user
 	    Random rnd = new Random();
 	    int number = rnd.nextInt(99999);
@@ -75,6 +76,9 @@ public class RegisterServlet extends HttpServlet {
 		{
 			
 			 String query = "insert into OFRS.USER_DETAILS (USER_ID,PASSWORD,FIRST_NAME,LAST_NAME,AGE,GENDER,ADDRESS,PHONE_NUMBER) values(?,?,?,?,?,?,?,?)";
+			 String command = "insert into OFRS.LOGIN_CREDENTIALS (USER_TYPE,USER_ID,PASSWORD) VALUES ('"+u+"','"+number+"','"+Password+"')";
+			 Statement statement = con.createStatement();
+			 statement.executeUpdate(command);
 	           PreparedStatement pt = con.prepareStatement(query);
 	           pt.setInt(1, number);
 	           pt.setString(2,Password );
