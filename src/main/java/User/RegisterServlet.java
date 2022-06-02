@@ -17,9 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+import MailApp.Sendmail;
 import Connection.GetConnection;
-
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,7 +27,8 @@ public class RegisterServlet extends HttpServlet {
         super();
     }
 	
-	//Encryption
+	//Send Email
+
 	Connection con = GetConnection.getConnection();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -36,6 +36,7 @@ public class RegisterServlet extends HttpServlet {
 		String First_Name = request.getParameter("FirstName");
 		String Last_Name = request.getParameter("LastName");
 		//String DOB = request.getParameter("DOB");
+		String Email = request.getParameter("Email");
 		String Age = request.getParameter("Age");
 		String Gender = request.getParameter("Gender");
 		String Address = request.getParameter("Address");
@@ -52,7 +53,7 @@ public class RegisterServlet extends HttpServlet {
 		try
 		{
 			
-			 String query = "insert into OFRS.USER_DETAILS (USER_ID,PASSWORD,FIRST_NAME,LAST_NAME,AGE,GENDER,ADDRESS,PHONE_NUMBER) values(?,?,?,?,?,?,?,?)";
+			 String query = "insert into OFRS.USER_DETAILS (USER_ID,PASSWORD,FIRST_NAME,LAST_NAME,AGE,GENDER,ADDRESS,PHONE_NUMBER,EMAIL) values(?,?,?,?,?,?,?,?,?)";
 			 String command = "insert into OFRS.LOGIN_CREDENTIALS (USER_TYPE,USER_ID,PASSWORD) VALUES ('"+u+"','"+number+"','"+Password+"')";
 			 Statement statement = con.createStatement();
 			 statement.executeUpdate(command);
@@ -65,6 +66,7 @@ public class RegisterServlet extends HttpServlet {
 	           pt.setString(6, Gender);
 	           pt.setString(7,Address);
 	           pt.setString(8,PhoneNo);
+	           pt.setString(9,Email);
 	           
 	           int i = pt.executeUpdate();
 	           dispatcher = request.getRequestDispatcher("Registration.jsp");
@@ -73,6 +75,7 @@ public class RegisterServlet extends HttpServlet {
 	        	   //response.sendRedirect("Login.jsp");
 	        	   request.setAttribute("status", "success");
 	        	   request.setAttribute("userid", number);
+	        	   Sendmail.sendMail(Email,number);
 	           }
 	           else {
 				   //String errorMessage = "User Available";
