@@ -16,7 +16,7 @@ try{
     Statement statement = con.createStatement();
 	String command = "UPDATE FLIGHT_DETAILS SET FLIGHT_NAME='"+flightname+"', SOURCE='"+source+"', DESTINATION='"+destination+"', ESTIMATED_TRAVEL_DURATION='"+travelduration+"', SEATING_CAPACITY='"+seatingcapacity+"', RESERVATION_TYPE='"+reservationtype+"', RESERVATION_CAPACITY='"+reservationcapacity+"' WHERE FLIGHT_ID='"+flightID+"'";
     statement.executeUpdate(command);
-	out.println("Data is successfully updated!");
+    out.println("<center style='display:flex;align-items:center;height:100vh;justify-content:center;'><h1>Data is successfully updated!</h1></center>");
 }
 catch(Exception e){
     out.print(e);

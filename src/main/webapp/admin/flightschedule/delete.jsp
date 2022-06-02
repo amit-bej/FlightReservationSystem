@@ -9,7 +9,7 @@ try{
     Statement statement = con.createStatement();
 	String command = "DELETE FLIGHT_SCHEDULE_DETAILS WHERE FLIGHT_ID='"+flightID+"'";
     statement.executeUpdate(command);
-	out.println("Data is successfully deleted!");
+    out.println("<center style='display:flex;align-items:center;height:100vh;justify-content:center;'><h1>Data is successfully deleted!</h1></center>");
 }
 catch(Exception e){
     out.print(e);

@@ -13,10 +13,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" />
+    <script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+	integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+	crossorigin="anonymous"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+	integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+	crossorigin="anonymous"></script>
     <title>XYZ Airlines</title>
 </head>
 
 <body>
+<script>
+if (<%=session.getAttribute("userid") %> == null){
+	window.location.href = "http://localhost:2000/FlightReservationSystem/Login.jsp";
+	
+}
+</script>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid px-md-5">
             <a class="navbar-brand fs-4" href="/"><img src="images/logo.png" width="50" height="50" /> XYZ Airlines</a>
@@ -29,15 +43,20 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="Login.jsp">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="Registration.jsp">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="Logout"><%=session.getAttribute("username") %></a>
-                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+			          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			            <i class="fas fa-user-circle"></i>
+			          </a>
+			          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+			            <li><p class="dropdown-item mb-1" >User ID: <%=session.getAttribute("userid") %></p></li>
+			            <li><a class="dropdown-item" href="UserOperation/userprofile/userprofile.jsp">Edit Profile</a></li>
+			            <li><a class="dropdown-item" href="UserOperation/myflight.jsp">My Bookings</a></li>
+			            <li><hr class="dropdown-divider"></li>
+			            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+			          </ul>
+			        </li>
                 </ul>
             </div>
         </div>

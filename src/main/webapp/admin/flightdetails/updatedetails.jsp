@@ -19,6 +19,12 @@
 
 
 <body>
+<script>
+if (<%=session.getAttribute("userid") %> == null){
+	window.location.href = "http://localhost:2000/FlightReservationSystem/Login.jsp";
+	
+}
+</script>
 <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -29,16 +35,19 @@
             <hr>
 
             <ul class="list-unstyled components">
+            <li><a class="sidebar-link ps-md-3" href="../index.jsp"><i
+						class="fas fa-info-circle"></i> Manage bookings</a></li>
                 <li class="active">
-                    <a class="sidebar-link ps-md-3" href="../flightdetails"><i class="fas fa-info-circle"></i> Flight Details</a>
+                    <a class="sidebar-link ps-md-3" href="../flightdetails/index.jsp"><i class="fas fa-info-circle"></i> Flight Details</a>
                 </li>  
                   
                 <li>  
-                    <a class="sidebar-link ps-md-3" href="../flightschedule"><i class="fas fa-calendar-alt"></i> Flight Schedule</a>
+                    <a class="sidebar-link ps-md-3" href="../flightschedule/index.jsp"><i class="fas fa-calendar-alt"></i> Flight Schedule</a>
                 </li>  
                 <li>  
-                    <a class="sidebar-link ps-md-3" href="#"><i class="fas fa-map-marker-alt"></i> Route Details</a>
+                    <a class="sidebar-link ps-md-3" href="../routedetails/index.jsp"><i class="fas fa-map-marker-alt"></i> Route Details</a>
                 </li>  
+                <li><a class="sidebar-link ps-md-3" href="routedetails/index.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
 
             

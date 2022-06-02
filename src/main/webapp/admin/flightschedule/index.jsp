@@ -27,6 +27,12 @@
 
 
 <body>
+<script>
+if (<%=session.getAttribute("userid") %> == null){
+	window.location.href = "http://localhost:2000/FlightReservationSystem/Login.jsp";
+	
+}
+</script>
 	<div class="wrapper">
 		<!-- Sidebar  -->
 		<nav id="sidebar">
@@ -37,13 +43,16 @@
 			<hr>
 
 			<ul class="list-unstyled components">
-				<li><a class="sidebar-link ps-md-3" href="../flightdetails"><i
+			<li><a class="sidebar-link ps-md-3" href="../index.jsp"><i
+						class="fas fa-info-circle"></i> Manage bookings</a></li>
+				<li><a class="sidebar-link ps-md-3" href="../flightdetails/index.jsp"><i
 						class="fas fa-info-circle"></i> Flight Details</a></li>
 
 				<li class="active"><a class="sidebar-link ps-md-3" href="#"><i
 						class="fas fa-calendar-alt"></i> Flight Schedule</a></li>
-				<li><a class="sidebar-link ps-md-3" href="#"><i
+				<li><a class="sidebar-link ps-md-3" href="../routedetails/index.jsp"><i
 						class="fas fa-map-marker-alt"></i> Route Details</a></li>
+						<li><a class="sidebar-link ps-md-3" href="routedetails/index.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 			</ul>
 
 
@@ -175,37 +184,37 @@
 								</select>
 							</div>
 							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox" value="1"
+								<input class="form-check-input" type="checkbox" value="0"
 									name="days"> <label class="form-check-label"
 									for="defaultCheck1"> Every Sunday </label>
 							</div>
 							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox" value="2"
+								<input class="form-check-input" type="checkbox" value="1"
 									name="days"> <label class="form-check-label"
 									for="defaultCheck1"> Every Monday </label>
 							</div>
 							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox" value="3"
+								<input class="form-check-input" type="checkbox" value="2"
 									name="days"> <label class="form-check-label"
 									for="defaultCheck1"> Every Tuesday </label>
 							</div>
 							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox" value="4"
+								<input class="form-check-input" type="checkbox" value="3"
 									name="days"> <label class="form-check-label"
 									for="defaultCheck1"> Every Wednesday </label>
 							</div>
 							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox" value="5"
+								<input class="form-check-input" type="checkbox" value="4"
 									name="days"> <label class="form-check-label"
 									for="defaultCheck1"> Every Thursday </label>
 							</div>
 							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox" value="6"
+								<input class="form-check-input" type="checkbox" value="5"
 									name="days"> <label class="form-check-label"
 									for="defaultCheck1"> Every Friday </label>
 							</div>
 							<div class="mb-3 form-check">
-								<input class="form-check-input" type="checkbox" value="7"
+								<input class="form-check-input" type="checkbox" value="6"
 									name="days"> <label class="form-check-label"
 									for="defaultCheck1"> Every Saturday </label>
 							</div>

@@ -16,7 +16,7 @@ try{
     Statement statement = con.createStatement();
 	String command = "INSERT into FLIGHT_DETAILS(FLIGHT_ID, FLIGHT_NAME, SOURCE, DESTINATION, ESTIMATED_TRAVEL_DURATION, SEATING_CAPACITY, RESERVATION_TYPE, RESERVATION_CAPACITY)values('"+flightID+"','"+flightname+"','"+source+"','"+destination+"','"+travelduration+"','"+seatingcapacity+"','"+reservationtype+"','"+reservationcapacity+"')";
     statement.executeUpdate(command);
-	out.println("Data is successfully inserted!");
+	out.println("<center style='display:flex;align-items:center;height:100vh;justify-content:center;'><h1>Data is successfully inserted!</h1></center>");
 }
 catch(Exception e){
     out.print(e);

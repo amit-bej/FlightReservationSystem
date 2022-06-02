@@ -1,14 +1,7 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="Connection.GetConnection"%>
-<%@ page import="java.util.Calendar"%>
-
-<%
-
-String flightID = request.getParameter("flightID"); 
-String date = request.getParameter("date");
 
 
-%>
 <!doctype html>
 <html lang="en">
 
@@ -58,35 +51,53 @@ if (<%=session.getAttribute("userid") %> == null){
     
     <div class="row m-0">
     <div class="col-md-6 m-auto shadow-sm border p-3">
-    <h3 class="text-center">Checkout</h3>
-    <form action="reserveflight.jsp" method="POST">
+    <h3 class="text-center">Payment</h3>
+    <form action="payment-submit.jsp" method="POST">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">User ID</label>
-    <input type="number" class="form-control" value="<%=session.getAttribute("userid") %>" readonly="readonly" name="userID">
+    <label for="exampleInputEmail1" class="form-label">Card Number</label>
+    <input type="number" class="form-control" name="cardnumber">
+  </div>
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Expiry Date</label>
+    <input type="date" class="form-control" name="date">
+  </div>
+  <%
+String userID = String.valueOf(session.getAttribute("userid"));
+String flightID = request.getParameter("flightID");
+String dateofjourney = request.getParameter("dateofjourney");
+
+try{
+	Connection con = GetConnection.getConnection();
+    Statement statement = con.createStatement();
+    String command = "SELECT * FROM RESERVE_FLIGHT_DETAILS JOIN FLIGHT_DETAILS ON RESERVE_FLIGHT_DETAILS.FLIGHT_ID = FLIGHT_DETAILS.FLIGHT_ID JOIN USER_DETAILS ON RESERVE_FLIGHT_DETAILS.USER_ID = USER_DETAILS.USER_ID WHERE RESERVE_FLIGHT_DETAILS.FLIGHT_ID='"+flightID+"' AND RESERVE_FLIGHT_DETAILS.USER_ID='"+userID+"' AND RESERVE_FLIGHT_DETAILS.DATE_OF_JOURNEY='"+dateofjourney+"'";
+	
+    ResultSet resultSet = statement.executeQuery(command);
+	while (resultSet.next()) {
+		Integer p = Integer.parseInt(resultSet.getString("PRICE"));
+		Integer s = Integer.parseInt(resultSet.getString("NO_OF_SEATS"));
+		Integer price =  p*s ;
+%>
+<div class="mb-3">
+	<h5>PAYMENT SUMMARY</h5>
+	<p class="mb-0">Total Seats: <%=s%></p>
+	<p class="mb-2">Amount per Seat: <%=p%></p>
+    <h6>Total Amount to Pay: <%=price%></h6>
   </div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Flight ID</label>
-    <input type="number" class="form-control" value="<%=flightID%>" readonly="readonly" name="flightID">
+    <input type="hidden" class="form-control" name="price" value="<%=price%>">
   </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Date of Journey</label>
-    <input type="date" class="form-control" value="<%=date%>" readonly="readonly" name="date">
-  </div>
-  <div class="mb-3"><label for="exampleInputEmail1" class="form-label">Reservation Type</label> 
-								<select class="form-select" aria-label="Default select example"
-									name="reservationtype" required>
-									<option value="" selected disabled>Reservation Type</option>
-									<option value="First Class">First Class</option>
-									<option value="Business Class">Business Class</option>
-									<option value="Premium Economy">Premium Economy</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Total Seats</label> 
-								<input type="number" class="form-control"
-									name="seats" required>
-							</div>
-  <input type="submit" class="btn btn-primary" value="Confirm Booking">
+<% 
+	}
+}
+catch(Exception e){
+    out.print(e);
+
+}
+ 
+ 
+%>
+  <input type="submit" class="btn btn-primary" value="Make Payment">
 </form>
     </div></div></div>
 

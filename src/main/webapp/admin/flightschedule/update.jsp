@@ -15,7 +15,7 @@ try{
 	String command = "INSERT into FLIGHT_SCHEDULE_DETAILS(FLIGHT_ID, FLIGHT_NAME, AVAILABLE_DAYS)values('"+flightID+"','"+flightname+"','"+days[i]+"')";
     statement.executeUpdate(command);
     }
-	out.println("Data is successfully updated!");
+    out.println("<center style='display:flex;align-items:center;height:100vh;justify-content:center;'><h1>Data is successfully updated!</h1></center>");
 }
 catch(Exception e){
     out.print(e);
