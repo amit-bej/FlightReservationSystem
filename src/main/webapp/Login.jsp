@@ -43,7 +43,7 @@
 			<!-- Tabs Titles -->
 			<h2 class="active">Sign In</h2>
 			<!-- Login Form -->
-			<form action="Login" method="get">
+			<form action="Login" method="post">
 				<input type="text" id="login" class="fadeIn second" name="username"
 					placeholder="username" required> <input type="password"
 					id="password" class="fadeIn third" name="password"

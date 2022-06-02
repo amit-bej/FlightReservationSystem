@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 		try
 		{
-			 PreparedStatement pt = con.prepareStatement("select * from LOGIN_CREDENTIALS where USER_ID= ? and PASSWORD = ?");
+			 PreparedStatement pt = con.prepareStatement("select * from OFRS.LOGIN_CREDENTIALS where USER_ID= ? and PASSWORD = ?");
 			 pt.setString(1,userID);
 			 pt.setString(2,password);
 			 
@@ -42,8 +42,8 @@ public class LoginServlet extends HttpServlet {
 			 if(rs.next())
 			 {
 				 session.setAttribute("userid", rs.getString("USER_ID"));
-				 dispatcher = request.getRequestDispatcher("/index.jsp");
-				 response.sendRedirect("http://localhost:2000/FlightReservationSystem/index.jsp");  
+				 dispatcher = request.getRequestDispatcher("index.jsp");
+				 //response.sendRedirect("http://localhost:8080/FlightReservationSystem/index.jsp");  
 				 
 				 
 			 }
@@ -51,9 +51,9 @@ public class LoginServlet extends HttpServlet {
 			 {
 				 request.setAttribute("status", "failed");
 				 dispatcher = request.getRequestDispatcher("Login.jsp");
-				 dispatcher.forward(request, response);
+				 
 			 }
-			 
+			 dispatcher.forward(request, response);
 		}
 		catch(Exception e)
 		{

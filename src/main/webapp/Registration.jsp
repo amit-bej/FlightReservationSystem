@@ -113,6 +113,15 @@
 											</div>
 										</div>
 										<div class="uk-margin">
+											<label class="uk-form-label" for="Email"> Email </label>
+											<div class="uk-form-controls">
+												<div class="uk-inline uk-width-1-1">
+													<input class="uk-input" id="Email" name="Email"
+														type="email" required>
+												</div>
+											</div>
+										</div>
+										<div class="uk-margin">
 											<label class="uk-form-label" for="Password"> Password
 											</label>
 											<div class="uk-form-controls">
