@@ -73,10 +73,7 @@ if (<%=session.getAttribute("userid") %> == null){
 			</nav>
 
 			<div class="container mb-5">
-				<button type="button" class="btn btn-primary my-3"
-					data-bs-toggle="modal" data-bs-target="#exampleModal">
-					<i class="fas fa-plus-circle"></i> Add Flight Details
-				</button>
+				
 				<h3 class="mb-3">Manage Flight Bookings</h3>
 				<div class="row">
                             <div class="col-12 col-md-6 mt-3">
