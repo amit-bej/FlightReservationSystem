@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 			 ResultSet rs = pt.executeQuery();
 			 if(rs.next())
 			 {
-				 session.setAttribute("username", rs.getString("USER_ID"));
+				 session.setAttribute("userid", rs.getString("USER_ID"));
 				 dispatcher = request.getRequestDispatcher("/index.jsp");
 				 response.sendRedirect("http://localhost:2000/FlightReservationSystem/index.jsp");  
 				 

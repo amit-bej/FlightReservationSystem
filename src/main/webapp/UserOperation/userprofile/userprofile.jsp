@@ -71,7 +71,7 @@
 														<div class="form-group">
 															<label class="control-label">First Name</label>
 															<div>
-																<input type="email" class="form-control input-lg"
+																<input type="text" class="form-control input-lg"
 																	name="firstname"
 																	value="<%=resultSet.getString("FIRST_NAME")%>">
 															</div>
@@ -87,14 +87,22 @@
 														<div class="form-group">
 															<label class="control-label">Age</label>
 															<div>
-																<input type="email" class="form-control input-lg"
+																<input type="text" class="form-control input-lg"
 																	name="age" value="<%=resultSet.getString("AGE")%>">
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label">Gender</label>
+															<div>
+																<input type="text" class="form-control input-lg"
+																	name="gender"
+																	value="<%=resultSet.getString("GENDER")%>">
 															</div>
 														</div>
 														<div class="form-group">
 															<label class="control-label">Address</label>
 															<div>
-																<input type="email" class="form-control input-lg"
+																<input type="text" class="form-control input-lg"
 																	name="address"
 																	value="<%=resultSet.getString("ADDRESS")%>">
 															</div>
@@ -102,7 +110,7 @@
 														<div class="form-group">
 															<label class="control-label">PhoneNo</label>
 															<div>
-																<input type="email" class="form-control input-lg"
+																<input type="text" class="form-control input-lg"
 																	name="phoneno"
 																	value="<%=resultSet.getString("PHONE_NUMBER")%>">
 															</div>
@@ -283,18 +291,6 @@
 			</div>
 		</div>
 	</footer>
-	<script type="text/javascript">
-		var status = document.getElementById("status").value;
-		if (status == "success") {
-			swal({
-			    title: "Congrats!",
-			    text: "Password Successfuly",
-			    type: "success",
-			    icon: "success"
-			}).then(function() {
-			    window.location = "userprofile.jsp";
-			});
-		}
-	</script>
+	<!-- partial -->
 </body>
 </html>
