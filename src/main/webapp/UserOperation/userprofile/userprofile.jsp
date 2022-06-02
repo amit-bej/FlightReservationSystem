@@ -30,24 +30,32 @@
 
 </head>
 <body>
+<script>
+if (<%=session.getAttribute("userid") %> == null){
+	window.location.href = "http://localhost:2000/FlightReservationSystem/Login.jsp";
+	
+}
+</script>
 <input type="hidden" id="status"
 		value="<%=request.getAttribute("status")%>">
 	<div class="main-content">
 		<div class="container mt-7">
 			<!-- Table -->
-			<div class="row">
+			<div class="row m-0">
 				<div class="col-xl-8 m-auto order-xl-1">
 					<div class="card bg-secondary shadow">
 						<%
 						try {
 							Connection con = GetConnection.getConnection();
 							Statement statement = con.createStatement();
-							String command = "SELECT * FROM OFRS.USER_DETAILS WHERE USER_ID=14764";
+							String sess = String.valueOf(session.getAttribute("userid"));
+							String command = "SELECT * FROM USER_DETAILS WHERE USER_ID='"+sess+"'";
 							ResultSet resultSet = statement.executeQuery(command);
 							while (resultSet.next()) {
+								
 						%>
 						<div class="card-header bg-white border-0">
-							<div class="row align-items-center">
+							<div class="row align-items-center m-0">
 								<div class="col-8">
 									<h3 class="mb-0">My account</h3>
 								</div>
@@ -185,7 +193,7 @@
 
 							<div class="pl-lg-4">
 
-								<div class="row">
+								<div class="row m-0">
 									<div class="col-lg-6">
 										<div class="form-group focused">
 											<label class="form-control-label" for="input-username">UserId</label>
@@ -194,16 +202,9 @@
 												value="<%=resultSet.getString("USER_ID")%>" readonly>
 										</div>
 									</div>
-									<div class="col-lg-6">
-										<div class="form-group">
-											<label class="form-control-label" for="input-email">Email
-												address</label> <input type="email" id="input-email"
-												class="form-control form-control-alternative"
-												value="<%=resultSet.getString("USER_ID")%>" readonly>
-										</div>
-									</div>
+									
 								</div>
-								<div class="row">
+								<div class="row m-0">
 									<div class="col-lg-6">
 										<div class="form-group focused">
 											<label class="form-control-label" for="input-first-name">First
@@ -221,7 +222,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row m-0">
 									<div class="col-lg-6">
 										<div class="form-group focused">
 											<label class="form-control-label" for="input-first-name">Age
@@ -247,7 +248,7 @@
 							<h6 class="heading-small text-muted mb-4">Contact
 								information</h6>
 							<div class="pl-lg-4">
-								<div class="row">
+								<div class="row m-0">
 									<div class="col-md-6">
 										<div class="form-group focused">
 											<label class="form-control-label" for="input-address">Address</label>
@@ -267,7 +268,7 @@
 									</div>
 								</div>
 							</div>
-							S
+							
 						</div>
 						<%
 						}
@@ -283,7 +284,7 @@
 		</div>
 	</div>
 	<footer class="footer">
-		<div class="row align-items-center justify-content-xl-between">
+		<div class="row align-items-center justify-content-xl-between m-0">
 			<div class="col-xl-6 m-auto text-center">
 				<div class="copyright">
 					<p>XYZ Airlines</p>

@@ -11,7 +11,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous"></link>
+	crossorigin="anonymous">
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
 	integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
@@ -20,15 +20,13 @@
 	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
 	integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
 	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-<link rel="stylesheet" href="../sidebar.css">
-<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="../style.css">
 <title>Admin</title>
 </head>
 
 
-<body onload="javascript:hideTable()">
+<body>
 <script>
 if (<%=session.getAttribute("userid") %> == null){
 	window.location.href = "http://localhost:2000/FlightReservationSystem/Login.jsp";
@@ -39,19 +37,22 @@ if (<%=session.getAttribute("userid") %> == null){
 		<!-- Sidebar  -->
 		<nav id="sidebar">
 			<div class="sidebar-header text-center">
-				<img src="../../images/logo.png" width="70" height="70" alt="image" />
+				<img src="../images/logo.png" width="70" height="70" alt="image" />
 				<h3>XYZ Airlines</h3>
 			</div>
 			<hr>
 
 			<ul class="list-unstyled components">
-				<li class="active"><a class="sidebar-link ps-md-3" href="#"><i
-						class="fas fa-info-circle"></i> View Flight</a></li>
+			<li class="active"><a class="sidebar-link ps-md-3" href="#"><i
+						class="fas fa-info-circle"></i> Manage bookings</a></li>
+				<li><a class="sidebar-link ps-md-3" href="flightdetails/index.jsp"><i
+						class="fas fa-info-circle"></i> Flight Details</a></li>
 
-				<li><a class="sidebar-link ps-md-3" href="../flightschedule"><i
-						class="fas fa-calendar-alt"></i> My Flight</a></li>
-				<li><a class="sidebar-link ps-md-3" href="#"><i
-						class="fas fa-map-marker-alt"></i> Logout</a></li>
+				<li><a class="sidebar-link ps-md-3" href="flightschedule/index.jsp"><i
+						class="fas fa-calendar-alt"></i> Flight Schedule</a></li>
+				<li><a class="sidebar-link ps-md-3" href="routedetails/index.jsp"><i
+						class="fas fa-map-marker-alt"></i> Route Details</a></li>
+						<li><a class="sidebar-link ps-md-3" href="../Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 			</ul>
 
 
@@ -63,8 +64,7 @@ if (<%=session.getAttribute("userid") %> == null){
 			<nav class="navbar navbar-expand-lg navbar-light bg-white">
 				<div class="container-fluid">
 
-					<button type="button" id="sidebarCollapse" class="btn btn-info"
-						onClick='javascript:showTable();'>
+					<button type="button" id="sidebarCollapse" class="btn btn-info">
 						<i class="fas fa-align-left"></i>
 					</button>
 
@@ -73,80 +73,68 @@ if (<%=session.getAttribute("userid") %> == null){
 			</nav>
 
 			<div class="container mb-5">
-			
-				<div class="row">
-					<div class="col-md-2">
-
-						<select class="form-select mt-3"
-							aria-label="Default select example" style="width: 150px;"
-							name="choose" required>
-							<option value="" selected disabled>Choose</option>
-							<option value="Afghanistan">FLIGHT_NAME</option>
-							<option value="Antarctica">Date</option>
-							<option value="Australia">Flight Id</option>
-						</select>
-					</div>
-					<div class="col-md-3">
-						<input type="text" class="form-control mt-3 ml-0"
-							id="exampleModal" placeholder="option" style="width: 150px;" name = "value">
-					</div>
-					<div class="col md-2" id="exampleModal">
-						<button type="button" class="btn btn-primary my-3"
-							onClick='javascript:showTable();'>View Flights</button>
-					</div>
-				</div>
-				
-
-			</div>
-			<table class="table table-bordered table-responsive" id="table">
-				<tr>
-					<th>FLIGHT ID</th>
-					<th>FLIGHT NAME</th>
-					<th>SOURCE</th>
-					<th>DESTINATION</th>
-					<th>ACTION</th>
-				</tr>
-
-				<%
-				try {
-					String option = request.getParameter("choose");
-					String value = request.getParameter("value");
-					Connection con = GetConnection.getConnection();
-					Statement statement = con.createStatement();
-					String command = "SELECT * FROM FLIGHT_DETAILS where '"+option+"'='"+value+"'";
-					ResultSet resultSet = statement.executeQuery(command);
-					
-					while (resultSet.next()) {
-				%>
-
-				<tr>
-					<th><%=resultSet.getString("FLIGHT_ID")%></th>
-					<td><%=resultSet.getString("FLIGHT_NAME")%></td>
-					<td><%=resultSet.getString("SOURCE")%></td>
-					<td><%=resultSet.getString("DESTINATION")%></td>
-					<td><button type="button" class="btn btn-primary "
-					data-bs-toggle="modal" data-bs-target="#exampleModal"> Book
+				<button type="button" class="btn btn-primary my-3"
+					data-bs-toggle="modal" data-bs-target="#exampleModal">
+					<i class="fas fa-plus-circle"></i> Add Flight Details
 				</button>
-				</tr>
+				<h3 class="mb-3">Manage Flight Bookings</h3>
+				<div class="row">
+                            <div class="col-12 col-md-6 mt-3">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label for="search" class="mr-3">Search Table: </label>
+                                        <input class="form-control form-control-sm" type="text" id="myInput"
+                                            placeholder="Start Typing Here...">
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+				<table class="table table-bordered table-responsive mt-3" id=table11>
+				<thead>
+					<tr>
+						<th>FLIGHT ID</th>
+						<th>USER ID</th>
+						<th>DATE OF JOURNEY</th>
+						<th>NO. OF SEATS</th>
+						<th>RESERVATION TYPE</th>
+					</tr>
+</thead>
+<tbody id="myTable">
+					<%
+					try {
+						Connection con = GetConnection.getConnection();
+						Statement statement = con.createStatement();
+						String command = "SELECT * FROM RESERVE_FLIGHT_DETAILS";
+						ResultSet resultSet = statement.executeQuery(command);
+						while (resultSet.next()) {
+					%>
+
+					<tr>
+						<th><%=resultSet.getString("FLIGHT_ID")%></th>
+						<td><%=resultSet.getString("USER_ID")%></td>
+						<td><%=resultSet.getString("DATE_OF_JOURNEY")%></td>
+						<td><%=resultSet.getString("NO_OF_SEATS")%></td>
+						<td><%=resultSet.getString("RESERVATION_TYPE")%></td>
+						
+					</tr>
 
 
-				<%
-				}
-				con.close();
-				} catch (Exception e) {
-				out.print(e);
+					<%
+					}
+					con.close();
+					} catch (Exception e) {
+					out.print(e);
 
-				}
-				%>
-			</table>
-
+					}
+					%>
+				</tbody></table>
+			</div>
 		</div>
-	
 
 
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1"
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -249,8 +237,8 @@ if (<%=session.getAttribute("userid") %> == null){
 				</div>
 			</div>
 		</div>
-</div>
 
+	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -276,13 +264,24 @@ if (<%=session.getAttribute("userid") %> == null){
 		});
 	</script>
 	<script>
-		function showTable() {
-			document.getElementById('table').style.visibility = "visible";
-		}
-		function hideTable() {
-			document.getElementById('table').style.visibility = "hidden";
-		}
-	</script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#filter").change(function () {
+                var value = $("option:selected", this).text().toLowerCase();
+                if (value == "all") {
+                    value = "";
+                }
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+        </script>
 
 </body>
 

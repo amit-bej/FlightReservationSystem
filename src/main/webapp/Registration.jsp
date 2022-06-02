@@ -159,10 +159,11 @@
 
 	<script type="text/javascript">
 		var status = document.getElementById("status").value;
+		var id = document.getElementById("userid").value;
 		if (status == "success") {
 			swal({
 			    title: "Congrats!",
-			    text: "Successfuly Registered",
+			    text: "Successfuly Registered Your User ID is:" +id,
 			    type: "success",
 			    icon: "success"
 			}).then(function() {
@@ -170,12 +171,6 @@
 			});
 		}
 	</script>
-	<script type="text/javascript">
-		var id = document.getElementById("userid").value;
-		if (status == "success") {
-			alert("Your user id is:"+id);
-			
-		}
-	</script>
+	
 </body>
 </html>

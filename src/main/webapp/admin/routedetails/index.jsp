@@ -45,12 +45,12 @@ if (<%=session.getAttribute("userid") %> == null){
 			<ul class="list-unstyled components">
 			<li><a class="sidebar-link ps-md-3" href="../index.jsp"><i
 						class="fas fa-info-circle"></i> Manage bookings</a></li>
-				<li class="active"><a class="sidebar-link ps-md-3" href="#"><i
+				<li><a class="sidebar-link ps-md-3" href="#"><i
 						class="fas fa-info-circle"></i> Flight Details</a></li>
 
 				<li><a class="sidebar-link ps-md-3" href="../flightschedule/index.jsp"><i
 						class="fas fa-calendar-alt"></i> Flight Schedule</a></li>
-				<li><a class="sidebar-link ps-md-3" href="../routedetails/index.jsp"><i
+				<li class="active"><a class="sidebar-link ps-md-3" href="../routedetails/index.jsp"><i
 						class="fas fa-map-marker-alt"></i> Route Details</a></li>
 						<li><a class="sidebar-link ps-md-3" href="routedetails/index.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 			</ul>
@@ -75,15 +75,13 @@ if (<%=session.getAttribute("userid") %> == null){
 			<div class="container mb-5">
 				<button type="button" class="btn btn-primary my-3"
 					data-bs-toggle="modal" data-bs-target="#exampleModal">
-					<i class="fas fa-plus-circle"></i> Add Flight Details
+					<i class="fas fa-plus-circle"></i> Add Route Details
 				</button>
-				<h3 class="mb-3">Manage Flight details</h3>
+				<h3 class="mb-3">Manage Route details</h3>
 				<table class="table table-bordered table-responsive">
 					<tr>
-						<th>FLIGHT ID</th>
-						<th>FLIGHT NAME</th>
-						<th>SOURCE</th>
-						<th>DESTINATION</th>
+						<th>ROUTE ID</th>
+						<th>ROUTE NAME</th>
 						<th>ACTIONS</th>
 					</tr>
 
@@ -91,21 +89,19 @@ if (<%=session.getAttribute("userid") %> == null){
 					try {
 						Connection con = GetConnection.getConnection();
 						Statement statement = con.createStatement();
-						String command = "SELECT * FROM FLIGHT_DETAILS";
+						String command = "SELECT * FROM ROUTE_DETAILS";
 						ResultSet resultSet = statement.executeQuery(command);
 						while (resultSet.next()) {
 					%>
 
 					<tr>
-						<th><%=resultSet.getString("FLIGHT_ID")%></th>
-						<td><%=resultSet.getString("FLIGHT_NAME")%></td>
-						<td><%=resultSet.getString("SOURCE")%></td>
-						<td><%=resultSet.getString("DESTINATION")%></td>
+						<th><%=resultSet.getString("ROUTE_ID")%></th>
+						<td><%=resultSet.getString("ROUTE_NAME")%></td>
 						<td><a class="text-decoration-none"
-							href="updatedetails.jsp?flightID=<%=resultSet.getString("FLIGHT_ID")%>"><i
+							href="updatedetails.jsp?routeID=<%=resultSet.getString("ROUTE_ID")%>"><i
 								class="fas fa-pencil-alt"></i> Edit</a>&nbsp;&nbsp;<a
 							class="text-danger text-decoration-none"
-							href="delete.jsp?flightID=<%=resultSet.getString("FLIGHT_ID")%>"><i
+							href="delete.jsp?routeID=<%=resultSet.getString("ROUTE_ID")%>"><i
 								class="fas fa-trash-alt"></i> Delete</a></td>
 					</tr>
 
@@ -130,7 +126,7 @@ if (<%=session.getAttribute("userid") %> == null){
 				<div class="modal-content">
 					<form action="add.jsp" method="POST">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Add flight
+							<h5 class="modal-title" id="exampleModalLabel">Add Route
 								Details</h5>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
@@ -138,86 +134,15 @@ if (<%=session.getAttribute("userid") %> == null){
 						<div class="modal-body">
 
 							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Flight
-									ID</label> <input type="number" class="form-control" name="flightID"
+								<label for="exampleInputEmail1" class="form-label">Route
+									ID</label> <input type="number" class="form-control" name="routeID"
 									required>
 							</div>
 							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Flight
-									Name</label> <input type="text" class="form-control" name="flightname"
+								<label for="exampleInputEmail1" class="form-label">Route
+									Name</label> <input type="text" class="form-control" name="routename"
 									required>
 							</div>
-							<div class="row m-0">
-								<div class="col-md-6 mb-3 ps-md-0">
-									<select class="form-select" aria-label="Default select example"
-										name="source" required>
-										<option value="" selected disabled>Source</option>
-										<option value="Afghanistan">Afghanistan</option>
-										<option value="Antarctica">Antarctica</option>
-										<option value="Australia">Australia</option>
-										<option value="Bangladesh">Bangladesh</option>
-										<option value="Brazil">Bangladesh</option>
-										<option value="Canada">Canada</option>
-										<option value="Denmark">Denmark</option>
-										<option value="Egypt">Egypt</option>
-										<option value="France">France</option>
-										<option value="Germany">Germany</option>
-										<option value="India">India</option>
-										<option value="Japan">Japan</option>
-										<option value="Singapore">Singapore</option>
-										<option value="United States">United States</option>
-										<option value="Zimbabwe">Zimbabwe</option>
-									</select>
-								</div>
-								<div class="col-md-6 mb-3 pe-md-0">
-									<select class="form-select" aria-label="Default select example"
-										name="destination" required>
-										<option value="" selected disabled>Destination</option>
-										<option value="Afghanistan">Afghanistan</option>
-										<option value="Antarctica">Antarctica</option>
-										<option value="Australia">Australia</option>
-										<option value="Bangladesh">Bangladesh</option>
-										<option value="Brazil">Bangladesh</option>
-										<option value="Canada">Canada</option>
-										<option value="Denmark">Denmark</option>
-										<option value="Egypt">Egypt</option>
-										<option value="France">France</option>
-										<option value="Germany">Germany</option>
-										<option value="India">India</option>
-										<option value="Japan">Japan</option>
-										<option value="Singapore">Singapore</option>
-										<option value="United States">United States</option>
-										<option value="Zimbabwe">Zimbabwe</option>
-									</select>
-								</div>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Travel
-									Duration</label> <input type="number" class="form-control"
-									name="travelduration" required>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Seating
-									Capacity</label> <input type="text" class="form-control"
-									name="seatingcapacity" required>
-							</div>
-							<div class="mb-3">
-								<select class="form-select" aria-label="Default select example"
-									name="reservationtype" required>
-									<option value="" selected disabled>Reservation Type</option>
-									<option value="First Class">First Class</option>
-									<option value="Business Class">Business Class</option>
-									<option value="Premium Economy">Premium Economy</option>
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Reservation
-									Capacity</label> <input type="number" class="form-control"
-									name="reservationcapacity" required>
-							</div>
-
-
-
 						</div>
 						<div class="modal-footer">
 

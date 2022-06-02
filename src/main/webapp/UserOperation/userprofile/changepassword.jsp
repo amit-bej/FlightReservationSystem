@@ -12,7 +12,7 @@ try{
     Statement statement = con.createStatement();
 	String command = "UPDATE OFRS.USER_DETAILS SET PASSWORD = '"+password+"'WHERE USER_ID = 14764";
    
-	out.println("Pasword Changed Successfully!");
+	out.println("<center style='display:flex;align-items:center;height:100vh;justify-content:center;'><h1>Password Changed Successfully!</h1></center>");
 	 int i = statement.executeUpdate(command);
 	 //if(i>0)
 	 //{

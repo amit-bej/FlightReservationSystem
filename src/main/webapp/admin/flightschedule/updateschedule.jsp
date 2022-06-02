@@ -8,48 +8,78 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+	integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+	crossorigin="anonymous"></script>
+<script defer
+	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+	integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../sidebar.css">
+<link rel="stylesheet" href="../../style.css">
     <title>Admin</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">XYZ Air Travels</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Add Flight Details</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Add Flight Schedule</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white">Add Route</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<script>
+if (<%=session.getAttribute("userid") %> == null){
+	window.location.href = "http://localhost:2000/FlightReservationSystem/Login.jsp";
+	
+}
+</script>
+<div class="wrapper">
+		<!-- Sidebar  -->
+		<nav id="sidebar">
+			<div class="sidebar-header text-center">
+				<img src="../../images/logo.png" width="70" height="70" alt="image" />
+				<h3>XYZ Airlines</h3>
+			</div>
+			<hr>
+
+			<ul class="list-unstyled components">
+			<li><a class="sidebar-link ps-md-3" href="../index.jsp"><i
+						class="fas fa-info-circle"></i> Manage bookings</a></li>
+				<li><a class="sidebar-link ps-md-3" href="../flightdetails/index.jsp"><i
+						class="fas fa-info-circle"></i> Flight Details</a></li>
+
+				<li class="active"><a class="sidebar-link ps-md-3" href="../flightschedule/index.jsp"><i
+						class="fas fa-calendar-alt"></i> Flight Schedule</a></li>
+				<li><a class="sidebar-link ps-md-3" href="../routedetails/index.jsp"><i
+						class="fas fa-map-marker-alt"></i> Route Details</a></li>
+						<li><a class="sidebar-link ps-md-3" href="routedetails/index.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+			</ul>
+
+
+		</nav>
+
+		<!-- Page Content  -->
+		<div id="content">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-white">
+				<div class="container-fluid">
+
+					<button type="button" id="sidebarCollapse" class="btn btn-info">
+						<i class="fas fa-align-left"></i>
+					</button>
+
+
+				</div>
+			</nav>
     <div class="container my-5">
         <div class="row">
-            <div class="col-md-4 m-auto border shadow-sm p-3">
+            <div class="col-md-6 m-auto border shadow-sm p-3">
                 <h3 class="text-center mb-4">Update Flight Schedule</h3>
                 <form action="update.jsp" method="POST">
                 <div class="mb-3 ps-md-0">
                 <label for="flightID" class="form-label">Select Flight ID</label>
                             <select class="form-select" aria-label="Default select example" name="flightID" id="FLIGHT_ID" required>
-<option value="" selected disabled>Select</option>
+<option value="<%=flightID %>" selected><%=flightID %></option>
 <% 
 
 try{
@@ -72,8 +102,22 @@ try{
 	<div class="mb-3">
                  <label for="exampleInputEmail1" class="form-label">Flight Name</label>
                  <select class="form-select" aria-label="Default select example" name="flightname" id="FLIGHT_ID" required>
-<option value="" selected disabled>Select</option>
-                        <% 
+<% 
+	String sql4 = "SELECT FLIGHT_NAME FROM FLIGHT_DETAILS WHERE FLIGHT_ID='"+flightID+"'";
+	ResultSet result4 = statement.executeQuery(sql4);
+	while(result4.next()){
+		%>
+                    
+                        <option value="<%=result4.getString("FLIGHT_NAME") %>"><%=result4.getString("FLIGHT_NAME") %></option>
+                              
+                            
+		
+		<%
+		}
+	
+
+
+ 
 	String sql = "SELECT * FROM FLIGHT_DETAILS";
 	ResultSet result = statement.executeQuery(sql);
 	while(result.next()){
@@ -97,43 +141,43 @@ catch(Exception e){
 </select>
                         </div>
                         <div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" value="1" name="days">
+  <input class="form-check-input" type="checkbox" value="0" name="days">
   <label class="form-check-label" for="defaultCheck1">
     Every Sunday
   </label>
 </div>
 <div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" value="2" name="days">
+  <input class="form-check-input" type="checkbox" value="1" name="days">
   <label class="form-check-label" for="defaultCheck1">
     Every Monday
   </label>
 </div>
 <div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" value="3" name="days">
+  <input class="form-check-input" type="checkbox" value="2" name="days">
   <label class="form-check-label" for="defaultCheck1">
     Every Tuesday
   </label>
 </div>
 <div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" value="4" name="days">
+  <input class="form-check-input" type="checkbox" value="3" name="days">
   <label class="form-check-label" for="defaultCheck1">
     Every Wednesday
   </label>
 </div>
 <div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" value="5" name="days">
+  <input class="form-check-input" type="checkbox" value="4" name="days">
   <label class="form-check-label" for="defaultCheck1">
     Every Thursday
   </label>
 </div>
 <div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" value="6" name="days">
+  <input class="form-check-input" type="checkbox" value="5" name="days">
   <label class="form-check-label" for="defaultCheck1">
     Every Friday
   </label>
 </div>
 <div class="mb-3 form-check">
-  <input class="form-check-input" type="checkbox" value="7" name="days">
+  <input class="form-check-input" type="checkbox" value="6" name="days">
   <label class="form-check-label" for="defaultCheck1">
     Every Saturday
   </label>
@@ -143,7 +187,9 @@ catch(Exception e){
             </div>
         </div>
     </div>
+</div>
 
+	</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
