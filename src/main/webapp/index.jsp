@@ -22,6 +22,11 @@
 	integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
 	crossorigin="anonymous"></script>
     <title>XYZ Airlines</title>
+    <script type = "text/javascript" >
+   function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>
 </head>
 
 <body>
@@ -41,7 +46,7 @@ if (<%=session.getAttribute("userid") %> == null){
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
+                        <a class="nav-link text-dark" aria-current="page" href="index.jsp">Home</a>
                     </li>
                     
                     
@@ -51,10 +56,10 @@ if (<%=session.getAttribute("userid") %> == null){
 			          </a>
 			          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 			            <li><p class="dropdown-item mb-1" >User ID: <%=session.getAttribute("userid") %></p></li>
-			            <li><a class="dropdown-item" href="UserOperation/userprofile/userprofile.jsp">Edit Profile</a></li>
+			            <li><a class="dropdown-item" href="UserOperation/userprofile/userprofile.jsp">Profile</a></li>
 			            <li><a class="dropdown-item" href="UserOperation/myflight.jsp">My Bookings</a></li>
 			            <li><hr class="dropdown-divider"></li>
-			            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+			            <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
 			          </ul>
 			        </li>
                 </ul>
