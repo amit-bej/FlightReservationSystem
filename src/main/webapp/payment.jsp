@@ -24,7 +24,7 @@ if (<%=session.getAttribute("userid") %> == null){
 	
 }
 </script>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+   <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid px-md-5">
             <a class="navbar-brand fs-4" href="/"><img src="images/logo.png" width="50" height="50" /> XYZ Airlines</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -34,14 +34,22 @@ if (<%=session.getAttribute("userid") %> == null){
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" aria-current="page" href="/">Home</a>
+                        <a class="nav-link text-dark" aria-current="page" href="index.jsp">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="Login.jsp">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="Registration.jsp">Register</a>
-                    </li>
+                    
+                    
+                    <li class="nav-item dropdown">
+			          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			            <i class="fas fa-user-circle"></i>
+			          </a>
+			          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+			            <li><p class="dropdown-item mb-1" >User ID: <%=session.getAttribute("userid") %></p></li>
+			            <li><a class="dropdown-item" href="UserOperation/userprofile/userprofile.jsp">Profile</a></li>
+			            <li><a class="dropdown-item" href="UserOperation/myflight.jsp">My Bookings</a></li>
+			            <li><hr class="dropdown-divider"></li>
+			            <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+			          </ul>
+			        </li>
                 </ul>
             </div>
         </div>
