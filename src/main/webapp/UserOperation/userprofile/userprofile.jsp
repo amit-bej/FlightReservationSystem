@@ -49,7 +49,7 @@ if (<%=session.getAttribute("userid") %> == null){
 							Connection con = GetConnection.getConnection();
 							Statement statement = con.createStatement();
 							String sess = String.valueOf(session.getAttribute("userid"));
-							String command = "SELECT * FROM USER_DETAILS WHERE USER_ID='"+sess+"'";
+							String command = "SELECT * FROM OFRS.USER_DETAILS WHERE USER_ID='"+sess+"'";
 							ResultSet resultSet = statement.executeQuery(command);
 							while (resultSet.next()) {
 								
@@ -268,7 +268,12 @@ if (<%=session.getAttribute("userid") %> == null){
 									</div>
 								</div>
 							</div>
-							
+							<hr class="my-4">
+							<div class="col-8  text-right">
+										<button type="button" class="btn btn-primary btn-sm"
+										 onclick="window.location.href='http://localhost:8081/FlightReservationSystem/index.jsp'">
+											Home</button>
+									</div>
 						</div>
 						<%
 						}

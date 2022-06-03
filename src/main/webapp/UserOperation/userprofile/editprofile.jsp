@@ -13,7 +13,7 @@ try{
 	Connection con = GetConnection.getConnection();
     Statement statement = con.createStatement();
     String sess = String.valueOf(session.getAttribute("userid"));
-	String command = "UPDATE USER_DETAILS SET FIRST_NAME = '"+firstname+"',LAST_NAME = '"+lastname+"',AGE = '"+age+"',GENDER = '"+gender+"',ADDRESS = '"+address+"',PHONE_NUMBER = '"+phoneno+"' WHERE USER_ID='"+sess+"'" ;
+	String command = "UPDATE OFRS.USER_DETAILS SET FIRST_NAME = '"+firstname+"',LAST_NAME = '"+lastname+"',AGE = '"+age+"',GENDER = '"+gender+"',ADDRESS = '"+address+"',PHONE_NUMBER = '"+phoneno+"' WHERE USER_ID='"+sess+"'" ;
     statement.executeUpdate(command);
     out.println("<center style='display:flex;align-items:center;height:100vh;justify-content:center;'><h1>Profile is successfully updated!</h1></center>");
 }

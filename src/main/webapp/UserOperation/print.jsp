@@ -57,7 +57,7 @@ if (<%=session.getAttribute("userid") %> == null){
 			            <li><a class="dropdown-item" href="userprofile/userprofile.jsp">Edit Profile</a></li>
 			            <li><a class="dropdown-item" href="myflight.jsp">My Bookings</a></li>
 			            <li><hr class="dropdown-divider"></li>
-			            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
+			            <li><a class="dropdown-item" href="logout"><i class="fas fa-sign-out-alt"></i> Logout </a></li>
 			          </ul>
 			        </li>
                 </ul>

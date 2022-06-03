@@ -52,7 +52,7 @@ if (<%=session.getAttribute("userid") %> == null){
 						class="fas fa-calendar-alt"></i> Flight Schedule</a></li>
 				<li><a class="sidebar-link ps-md-3" href="../routedetails/index.jsp"><i
 						class="fas fa-map-marker-alt"></i> Route Details</a></li>
-						<li><a class="sidebar-link ps-md-3" href="routedetails/index.jsp"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+						<li><a class="sidebar-link ps-md-3" href="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 			</ul>
 
 
