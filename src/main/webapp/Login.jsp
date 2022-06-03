@@ -10,11 +10,7 @@
 	crossorigin="anonymous">
 <link href="style.css" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/loginstyle.css">
-<script type = "text/javascript" >
-   function preventBack(){window.history.forward();}
-    setTimeout("preventBack()", 0);
-    window.onunload=function(){null};
-</script>
+
 </head>
 <body>
 	<input type="hidden" id="status"

@@ -23,13 +23,18 @@
 <link rel="stylesheet" href="sidebar.css">
 <link rel="stylesheet" href="../style.css">
 <title>Admin</title>
+<script type = "text/javascript" >
+   function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>
 </head>
 
 
 <body>
 <script>
 if (<%=session.getAttribute("userid") %> == null){
-	window.location.href = "http://localhost:2000/FlightReservationSystem/Login.jsp";
+	window.location.href = "http://localhost:8081/FlightReservationSystem/Login.jsp";
 	
 }
 </script>
@@ -52,7 +57,7 @@ if (<%=session.getAttribute("userid") %> == null){
 						class="fas fa-calendar-alt"></i> Flight Schedule</a></li>
 				<li><a class="sidebar-link ps-md-3" href="routedetails/index.jsp"><i
 						class="fas fa-map-marker-alt"></i> Route Details</a></li>
-						<li><a class="sidebar-link ps-md-3" href="../Logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+						<li><a class="sidebar-link ps-md-3" href="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
 			</ul>
 
 

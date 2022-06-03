@@ -37,21 +37,22 @@ public class LoginServlet extends HttpServlet {
 			 PreparedStatement pt = con.prepareStatement("select * from OFRS.LOGIN_CREDENTIALS where USER_ID= ? and PASSWORD = ?");
 			 pt.setString(1,userID);
 			 pt.setString(2,password);
-			 
 			 ResultSet rs = pt.executeQuery();
 			 if(rs.next())
 			 {
 				 session.setAttribute("userid", rs.getString("USER_ID"));
-				 dispatcher = request.getRequestDispatcher("index.jsp");
-				 //response.sendRedirect("http://localhost:8080/FlightReservationSystem/index.jsp");  
-				 
-				 
+				 if("U".equals(rs.getString("USER_TYPE"))) {
+				     //response.sendRedirect("http://localhost:8081/FlightReservationSystem/index.jsp");
+				     dispatcher = request.getRequestDispatcher("index.jsp");}
+				 else if("A".equals(rs.getString("USER_TYPE"))) {
+					 //response.sendRedirect("http://localhost:8081/FlightReservationSystem/admin/index.jsp");
+					 dispatcher = request.getRequestDispatcher("admin/index.jsp");}
 			 }
 			 else
 			 {
 				 request.setAttribute("status", "failed");
 				 dispatcher = request.getRequestDispatcher("Login.jsp");
-				 
+				 //response.sendRedirect("http://localhost:8081/FlightReservationSystem/Login.jsp");
 			 }
 			 dispatcher.forward(request, response);
 		}
